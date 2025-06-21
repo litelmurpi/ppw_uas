@@ -1,4 +1,3 @@
-console.log('WOY');
 document.addEventListener('DOMContentLoaded', () => {
     const burgerMenu = document.querySelector('.burger-menu');
     const navbar = document.querySelector('.navbar');

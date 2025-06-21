@@ -1,0 +1,546 @@
+/* General Styles & Reset */
+:root {
+    --nakama-dark-text: #333333; /* Dark text for most content */
+    --nakama-light-text: #666666; /* Lighter text for paragraphs, secondary info */
+    --nakama-blue-grey: #2C3E50; /* Dark blue/grey used for footer, hero button */
+    --nakama-yellow: #FFD43B; /* Yellow for primary button */
+    --nakama-light-grey-bg: #F8F8F8; /* Light background for sections */
+    --nakama-white-bg: #FFFFFF; /* White background for cards, header */
+    --nakama-hero-bg: #E0E8E7; /* Soft greenish-grey for hero section background */
+    --nakama-border-color: #E0E0E0; /* Light border color */
+    --nakama-category-tag-bg: #E6E6E6; /* Default category tag background */
+
+    /* Font Families - trying to match visual style */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--nakama-dark-text);
+    background-color: var(--nakama-light-grey-bg);
+}
+
+.container {
+    max-width: 1140px; /* Slightly adjusted max-width */
+    margin: 0 auto;
+    padding: 0 25px; /* More padding on sides */
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--nakama-dark-text);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.8em; /* Slightly larger */
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 40px; /* More space below heading */
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.4em;
+    font-weight: 600; /* Slightly bolder */
+}
+
+p {
+    margin-bottom: 10px;
+    color: var(--nakama-light-text);
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Inherit color by default, adjust where needed */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px; /* Larger padding for buttons */
+    border-radius: 6px; /* Slightly more rounded */
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary-nav { /* Navbar button */
+    background-color: var(--nakama-yellow);
+    color: var(--nakama-dark-text);
+    border: 1px solid var(--nakama-yellow);
+}
+
+.btn-primary-nav:hover {
+    background-color: #FFC900; /* Slightly darker yellow */
+}
+
+.btn-secondary-hero { /* Hero section button */
+    background-color: var(--nakama-blue-grey);
+    color: #fff;
+    border: 1px solid var(--nakama-blue-grey);
+}
+
+.btn-secondary-hero:hover {
+    background-color: #4C6A80;
+}
+
+/* Header */
+.header {
+    background-color: var(--nakama-white-bg);
+    padding: 18px 0; /* More vertical padding */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Stronger shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700; /* Bolder logo text */
+    font-size: 1.6em;
+    color: var(--nakama-dark-text);
+    font-family: var(--font-heading);
+}
+
+.logo img {
+    margin-right: 10px; /* More space */
+    width: 32px; /* Slightly larger */
+    height: 32px;
+}
+
+.navbar {
+    display: flex; /* Ensure flex for navigation links */
+    align-items: center;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* More space between links */
+    margin-right: 30px; /* Space before button */
+}
+
+.navbar .nav-links a {
+    color: var(--nakama-light-text);
+    font-weight: 600; /* Bolder nav links */
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--nakama-dark-text);
+}
+
+.burger-menu {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 2em; /* Larger icon */
+    color: var(--nakama-dark-text);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--nakama-hero-bg);
+    /* For the illustration, ideally it's an actual image. Using placeholder for now */
+    background-image: url('https://via.placeholder.com/1200x500/E0E8E7/A0A8A7?text=Hero+Illustration');
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Text color for the overlay */
+    text-align: center;
+    padding: 120px 0; /* More vertical padding */
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Use flex to center content vertically if needed */
+    align-items: center; /* Center content vertically */
+    justify-content: center;
+    min-height: 450px; /* Minimum height for consistency */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Darker overlay for text readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px; /* Adjusted max-width for text */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    color: #fff;
+    margin-bottom: 20px; /* More space below heading */
+    font-size: 3em; /* Even larger heading */
+}
+
+.hero-content p {
+    color: #f0f0f0;
+    font-size: 1.15em; /* Slightly larger paragraph */
+    margin-bottom: 40px; /* More space below paragraph */
+}
+
+/* Section Spacing */
+.section-padding {
+    padding: 80px 0; /* Consistent padding for all content sections */
+}
+
+/* Kelas Unggulan Section */
+.featured-classes-section {
+    background-color: var(--nakama-white-bg);
+}
+
+.class-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min card width adjustment */
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--nakama-white-bg);
+    border-radius: 10px; /* More rounded corners */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Stronger, softer shadow */
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Flex to handle image and content */
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px); /* More pronounced lift effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 190px; /* Specific height from image */
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows content to take up remaining space */
+}
+
+.card-content h3 {
+    margin-bottom: 8px;
+    font-size: 1.25em;
+    min-height: 60px; /* Ensure consistent card height for titles */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit title to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-content .instructor {
+    color: var(--nakama-light-text);
+    font-size: 0.9em;
+    margin-top: auto; /* Push to bottom if card content grows */
+}
+
+/* Kategori Populer Section */
+.popular-categories-section {
+    background-color: var(--nakama-light-grey-bg);
+}
+
+.popular-categories-section .container {
+    text-align: center;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px; /* Smaller gap between tags */
+}
+
+.category-tag {
+    background-color: var(--nakama-category-tag-bg);
+    color: var(--nakama-dark-text);
+    padding: 10px 25px; /* Larger padding */
+    border-radius: 25px; /* More rounded pill shape */
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-tag:hover {
+    background-color: var(--nakama-yellow);
+    color: var(--nakama-dark-text);
+}
+
+.category-tag.active { /* For the "Pemrograman" active state */
+    background-color: var(--nakama-yellow);
+    color: var(--nakama-dark-text);
+    font-weight: 600;
+}
+
+/* Testimoni Siswa Section */
+.testimonials-section {
+    background-color: var(--nakama-white-bg);
+}
+
+.testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--nakama-white-bg);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    padding: 30px; /* More padding */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px; /* More space below image */
+}
+
+.testimonial-card .quote {
+    font-style: italic;
+    margin-bottom: 20px; /* More space below quote */
+    color: var(--nakama-light-text);
+    font-size: 1.05em; /* Slightly larger quote font */
+    line-height: 1.7;
+}
+
+.testimonial-card .name {
+    font-weight: 700; /* Bolder name */
+    color: var(--nakama-dark-text);
+    font-size: 1.1em;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--nakama-blue-grey);
+    color: #fff;
+    padding: 40px 0; /* More vertical padding */
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer .footer-links {
+    margin-bottom: 20px; /* More space below links */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px; /* More space between links */
+}
+
+.footer .footer-links a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-links a:hover {
+    color: var(--nakama-yellow);
+}
+
+.footer .social-icons {
+    margin-bottom: 20px; /* More space below icons */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* More space between icons */
+}
+
+.footer .social-icons a {
+    color: #fff;
+    font-size: 1.6em; /* Slightly larger icons */
+    transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    color: var(--nakama-yellow);
+}
+
+.footer .copyright {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85em;
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar .nav-links {
+        gap: 20px;
+        margin-right: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4em;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: wrap;
+    }
+
+    .navbar {
+        display: none; /* Hidden by default on mobile */
+        width: 100%;
+        order: 3; /* Move below logo and burger */
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px; /* More space */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Shadow for mobile menu */
+        border-radius: 8px;
+        background-color: var(--nakama-white-bg);
+        padding: 20px 0;
+    }
+
+    .navbar.active {
+        display: flex; /* Show when active */
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .nav-links li {
+        width: 100%;
+    }
+    .navbar .nav-links a {
+        display: block;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--nakama-border-color); /* Separator */
+    }
+    .navbar .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+
+    .navbar .btn-primary-nav {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .burger-menu {
+        display: block; /* Show burger icon */
+    }
+
+    .hero-section {
+        padding: 80px 0;
+        min-height: 350px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+        margin-bottom: 30px;
+    }
+
+    .class-cards,
+    .testimonial-cards {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+
+    .card, .testimonial-card {
+        margin: 0 auto;
+        max-width: 450px; /* Constrain width for better readability */
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category-tag {
+        width: 90%; /* Wider on mobile */
+        max-width: 300px;
+    }
+
+    .footer-links, .social-icons {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 0.95em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .logo {
+        font-size: 1.4em;
+    }
+}

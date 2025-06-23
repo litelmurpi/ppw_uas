@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Account - NAKAMA</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+
+    <!-- <style>
+      /* ==========================================================================
+         NAKAMA Project - Color Palette & Style Guide
+         ========================================================================== */
+      :root {
+        /* --- Primary & Accent Colors --- */
+        --color-primary: #f39c12;
+        --color-primary-hover: #af7415;
+        --color-accent-teal: #4a7c77;
+        --color-accent-mint: #a8d8d1;
+        --color-accent-mint-light: #e5f2f0;
+        --color-accent-peach: #faebd7; /* Warna untuk kolom visual */
+
+        /* --- Neutral & Text Colors --- */
+        --color-background: #fdfbf6;
+        --color-text-heading: #2c2a2a;
+        --color-text-body: #5b5858;
+        --color-text-secondary: #a19e9e;
+        --color-border: #e0dede;
+        --color-white: #ffffff;
+
+        /* --- Semantic Colors (for status messages) --- */
+        --color-success: #2ecc71;
+        --color-danger: #e74c3c;
+        --color-warning: #f1c40f;
+      }
+
+      /* ==========================================================================
+         Component Styles (Menggunakan Variabel Warna)
+         ========================================================================== */
+      body {
+        background-color: var(--color-background); /* Menggunakan variabel */
+        font-family: "Poppins", sans-serif;
+        color: var(--color-text-body); /* Menggunakan variabel */
+      }
+      .login-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .login-card {
+        border: none;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+      }
+      .visual-column {
+        background-color: var(--color-accent-peach); /* Menggunakan variabel */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+      }
+      .visual-column img {
+        max-width: 100%;
+        height: auto;
+      }
+      .form-column {
+        padding: 3rem;
+        background-color: var(--color-white);
+      }
+      h2 {
+        color: var(--color-text-heading);
+      }
+      .form-label {
+        font-weight: 500;
+        color: var(--color-text-body);
+      }
+      .btn-custom-primary {
+        background-color: var(--color-primary); /* Menggunakan variabel */
+        border-color: var(--color-primary); /* Menggunakan variabel */
+        color: var(--color-white); /* Menggunakan variabel */
+        font-weight: 600;
+        padding: 0.75rem;
+      }
+      .btn-custom-primary:hover {
+        background-color: var(--color-primary-hover); /* Menggunakan variabel */
+        border-color: var(--color-primary-hover); /* Menggunakan variabel */
+        color: var(--color-white);
+      }
+      .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: var(--color-text-secondary); /* Menggunakan variabel */
+        margin: 1.5rem 0;
+      }
+      .separator::before,
+      .separator::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid var(--color-border); /* Menggunakan variabel */
+      }
+      .separator:not(:empty)::before {
+        margin-right: 0.25em;
+      }
+      .separator:not(:empty)::after {
+        margin-left: 0.25em;
+      }
+      .btn-social {
+        font-weight: 500;
+      }
+      .bottom-link {
+        font-size: 0.9rem;
+      }
+      .bottom-link a {
+        color: var(--color-primary);
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="container login-container">
+      <div class="col-lg-10 col-xl-9">
+        <div class="card login-card">
+          <div class="row g-0">
+            <div class="col-md-5 d-none d-md-block visual-column">
+              <img
+                src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Illustration_for_learning_anythin.width-1000.format-webp.webp"
+                alt="Learning Illustration"
+              />
+            </div>
+
+            <div class="col-md-7 form-column">
+              <div class="text-center text-md-start">
+                <h2 class="fw-bold mb-4">Create New Account</h2>
+              </div>
+
+              <form>
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label"
+                    >Create Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Create a password"
+                  />
+                </div>
+
+                <div class="form-check mb-4">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="termsCheck"
+                  />
+                  <label class="form-check-label" for="termsCheck">
+                    I agree to the Terms & Conditions
+                  </label>
+                </div>
+
+                <div class="d-grid">
+                  <button class="btn btn-custom-primary" type="submit">
+                    Create Account
+                  </button>
+                </div>
+
+                <div class="separator">or sign up with</div>
+
+                <div class="row g-2">
+                  <div class="col-sm-6 d-grid">
+                    <button
+                      class="btn btn-light border btn-social"
+                      type="button"
+                    >
+                      Sign up with Google
+                    </button>
+                  </div>
+                  <div class="col-sm-6 d-grid">
+                    <button
+                      class="btn btn-light border btn-social"
+                      type="button"
+                    >
+                      Sign up with Facebook
+                    </button>
+                  </div>
+                </div>
+
+                <div class="text-center mt-4 bottom-link">
+                  Already have an account?
+                  <a href="login.html" class="fw-bold text-decoration-none"
+                    >Sign in here</a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

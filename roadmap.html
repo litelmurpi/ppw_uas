@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roadmap Developer - NAKAMA</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Google Fonts (Poppins & Work Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Work+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Link ke Stylesheet Eksternal -->
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">NAKAMA</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#">Kelas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Bootcamp</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Komunitas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Webinar</a></li>
+          </ul>
+          <div class="d-flex ms-lg-3">
+            <a href="sign_up.html" class="btn btn-outline-secondary me-2"
+              >Masuk</a
+            >
+            <a href="sign_up.html" class="btn btn-custom-primary">Daftar</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <!-- Hero Section -->
+      <header class="text-start mb-5">
+        <h1 class="page-title display-4">Peta Jalan Karir Developer</h1>
+        <p class="lead text-muted">
+          Panduan visual yang menarik dengan gaya infografis.
+        </p>
+      </header>
+
+      <!-- Roadmap Selector Tabs -->
+      <ul class="nav nav-tabs roadmap-tabs mb-5" id="roadmapTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="frontend-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#frontend"
+            type="button"
+            role="tab"
+            aria-controls="frontend"
+            aria-selected="true"
+          >
+            Frontend Developer
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="backend-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#backend"
+            type="button"
+            role="tab"
+            aria-controls="backend"
+            aria-selected="false"
+          >
+            Backend Developer
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="mobile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#mobile"
+            type="button"
+            role="tab"
+            aria-controls="mobile"
+            aria-selected="false"
+          >
+            Mobile Developer
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content" id="roadmapTabContent">
+        <!-- Frontend Roadmap Pane -->
+        <div
+          class="tab-pane fade show active"
+          id="frontend"
+          role="tabpanel"
+          aria-labelledby="frontend-tab"
+          tabindex="0"
+        >
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-code-slash"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>HTML & CSS</h5>
+                    <p>Dasar-dasar struktur dan gaya web</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-braces"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>JavaScript</h5>
+                    <p>Interaksi dan logika di sisi klien</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="bi bi-bootstrap-reboot"></i>
+              </div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Framework (React)</h5>
+                    <p>Komponen UI dan manajemen state</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-palette"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>CSS Lanjutan</h5>
+                    <p>
+                      Pelajari tentang preprocessor (SASS) dan framework
+                      (Tailwind)
+                    </p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend Roadmap Pane -->
+        <div
+          class="tab-pane fade"
+          id="backend"
+          role="tabpanel"
+          aria-labelledby="backend-tab"
+          tabindex="0"
+        >
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-terminal"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Pilih Bahasa Pemrograman</h5>
+                    <p>
+                      Pilih salah satu: Node.js, Python (Django/Flask), atau Go
+                    </p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-hdd-stack"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Database</h5>
+                    <p>Pelajari SQL (PostgreSQL) dan NoSQL (MongoDB)</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-plug-fill"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>API</h5>
+                    <p>Pahami konsep RESTful API dan GraphQL</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-shield-lock"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Autentikasi & Keamanan</h5>
+                    <p>Implementasi JWT, OAuth 2.0, dan hashing password</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="bi bi-cloud-arrow-up"></i>
+              </div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Deployment</h5>
+                    <p>
+                      Pelajari tentang Docker, Nginx, dan platform cloud
+                      (AWS/GCP)
+                    </p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Roadmap Pane -->
+        <div
+          class="tab-pane fade"
+          id="mobile"
+          role="tabpanel"
+          aria-labelledby="mobile-tab"
+          tabindex="0"
+        >
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-phone"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Pilih Platform</h5>
+                    <p>
+                      Native (Swift/Kotlin) atau Cross-Platform (React
+                      Native/Flutter)
+                    </p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-grid-1x2"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Dasar UI/UX Mobile</h5>
+                    <p>
+                      Pahami Human Interface Guidelines (iOS) & Material Design
+                      (Android)
+                    </p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-file-code"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Bahasa Pemrograman</h5>
+                    <p>Pelajari Swift untuk iOS atau Kotlin untuk Android</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-kanban"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>State Management</h5>
+                    <p>Manajemen data aplikasi secara efisien</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon">
+                <i class="bi bi-arrow-down-up"></i>
+              </div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Networking & API</h5>
+                    <p>Mengambil dan mengirim data dari/ke server</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-icon"><i class="bi bi-shop"></i></div>
+              <div class="card timeline-card">
+                <div
+                  class="card-body d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <h5>Publikasi Aplikasi</h5>
+                    <p>Proses rilis ke App Store dan Google Play Store</p>
+                  </div>
+                  <a href="#" class="btn btn-custom-primary btn-sm"
+                    >Lihat Kelas</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS (Bundle) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- OPTIMALISASI SCRIPT -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ketika sebuah tab ditampilkan, update hash di URL
+        var roadmapTabElms = document.querySelectorAll(
+          'button[data-bs-toggle="tab"]'
+        );
+        roadmapTabElms.forEach(function (tabElm) {
+          tabElm.addEventListener("shown.bs.tab", function (event) {
+            var newHash = "#" + event.target.getAttribute("aria-controls");
+            // Gunakan replaceState agar tidak memenuhi history browser
+            history.replaceState(null, null, newHash);
+          });
+        });
+
+        // Ketika halaman dimuat, cek hash dan aktifkan tab yang sesuai
+        var hash = window.location.hash;
+        if (hash) {
+          var triggerEl = document.querySelector(
+            'button[data-bs-target="' + hash + '"]'
+          );
+          if (triggerEl) {
+            var tab = new bootstrap.Tab(triggerEl);
+            tab.show();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

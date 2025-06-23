@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selesaikan Pembayaran - NAKAMA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        :root {
+            --primary-color: #F5A623;
+            --primary-color-dark: #e0951c;
+            --page-bg: #FDFCF7;
+            --text-dark: #212529;
+            --text-secondary: #6c757d;
+            --border-color: #EAEAEA;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            background-color: var(--page-bg);
+            box-shadow: none;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .main-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .form-control, .form-select {
+            height: 50px;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(245, 166, 35, 0.25);
+            border-color: var(--primary-color);
+        }
+        
+        /* Custom styled radio buttons */
+        .payment-method-option {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .payment-method-option input[type="radio"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.15em;
+            height: 1.15em;
+            border: 0.15em solid var(--border-color);
+            border-radius: 50%;
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+        }
+        .payment-method-option input[type="radio"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em var(--primary-color);
+        }
+        .payment-method-option input[type="radio"]:checked::before {
+            transform: scale(1);
+        }
+        .payment-method-option:has(input:checked) {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(245, 166, 35, 0.25);
+        }
+        
+        .payment-details-content {
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            margin-top: -10px; /* Overlap with the option above */
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .payment-logo {
+            height: 25px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s ease;
+        }
+        .payment-logo:hover, .payment-logo.selected {
+             opacity: 1;
+        }
+
+
+        /* Order Summary Card */
+        .order-summary-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .order-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 0.5rem;
+            object-fit: cover;
+        }
+        .order-item-title {
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        .order-item-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .price-summary span {
+            font-weight: 500;
+        }
+        .price-summary .total {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .btn-pay {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            font-weight: 600;
+            padding: 0.85rem;
+            border-radius: 0.75rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .btn-pay:hover {
+            background-color: var(--primary-color-dark);
+            border-color: var(--primary-color-dark);
+            color: #fff;
+        }
+        .secure-payment-info {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container py-2">
+            <a class="navbar-brand" href="#">NAKAMA</a>
+            <div class="d-flex align-items-center">
+                <a class="nav-link fw-bold me-3" href="#">Dasbor</a>
+                <a class="nav-link" href="#">
+                    <img src="https://placehold.co/40x40/EFEFEF/333333?text=A" class="rounded-circle" alt="Avatar Pengguna">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <!-- Form utama sekarang membungkus kedua kolom untuk validasi tombol submit -->
+        <form id="checkoutForm" class="needs-validation" novalidate>
+            <div class="row g-5">
+                <!-- Kolom Kiri: Form Pembayaran -->
+                <div class="col-lg-7">
+                    <h1 class="main-title">Selesaikan Pembayaran</h1>
+                    
+                    <!-- Informasi Pembeli -->
+                    <section class="mb-5">
+                        <h2 class="section-title">Informasi Pembeli</h2>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Masukkan nama lengkap Anda" required>
+                            <div class="invalid-feedback">Nama lengkap tidak boleh kosong.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
+                            <div class="invalid-feedback">Masukkan alamat email yang valid.</div>
+                        </div>
+                    </section>
+
+                    <!-- Metode Pembayaran -->
+                    <section class="mb-4">
+                        <h2 class="section-title">Metode Pembayaran</h2>
+                        <div class="vstack gap-2">
+                            <!-- Opsi Kartu Kredit -->
+                            <label for="kartuKredit" class="d-flex align-items-center gap-3 payment-method-option">
+                                <input type="radio" id="kartuKredit" name="paymentMethod" value="creditCard" checked>
+                                <span>Kartu Kredit/Debit</span>
+                            </label>
+                             <div id="creditCardFields" class="payment-details-content">
+                                <div class="mb-3">
+                                    <label for="cardNumber" class="form-label">Nomor Kartu</label>
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="0000 0000 0000 0000" required>
+                                    <div class="invalid-feedback">Nomor kartu tidak boleh kosong.</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 mb-3">
+                                        <label for="expiryDate" class="form-label">Tanggal Kadaluarsa</label>
+                                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
+                                        <div class="invalid-feedback">Tanggal kadaluarsa tidak boleh kosong.</div>
+                                    </div>
+                                    <div class="col-md-5 mb-3">
+                                        <label for="cvv" class="form-label">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                                        <div class="invalid-feedback">CVV tidak boleh kosong.</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cardName" class="form-label">Nama pada Kartu</label>
+                                    <input type="text" class="form-control" id="cardName" placeholder="Nama lengkap pada kartu" required>
+                                    <div class="invalid-feedback">Nama pada kartu tidak boleh kosong.</div>
+                                </div>
+                            </div>
+
+                            <!-- Opsi Akun Virtual -->
+                            <label for="akunVirtual" class="d-flex align-items-center gap-3 payment-method-option">
+                                <input type="radio" id="akunVirtual" name="paymentMethod" value="virtualAccount">
+                                <span>Akun Virtual</span>
+                            </label>
+                            <div id="virtualAccountFields" class="payment-details-content" style="display: none;">
+                                <p>Pilih bank tujuan:</p>
+                                <div class="d-flex justify-content-around" id="bank-logos">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia_logo.svg" alt="Logo BCA" class="payment-logo" data-value="bca">
+                                    <img src="https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/2560px-BNI_logo.svg.png" alt="Logo BNI" class="payment-logo" data-value="bni">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/2560px-Bank_Mandiri_logo_2016.svg.png" alt="Logo Mandiri" class="payment-logo" data-value="mandiri">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/2560px-BRI_2020.svg.png" alt="Logo BRI" class="payment-logo" data-value="bri">
+                                </div>
+                            </div>
+                            
+                            <!-- Opsi Dompet Digital -->
+                            <label for="dompetDigital" class="d-flex align-items-center gap-3 payment-method-option">
+                                <input type="radio" id="dompetDigital" name="paymentMethod" value="eWallet">
+                                <span>Dompet Digital</span>
+                            </label>
+                             <div id="eWalletFields" class="payment-details-content" style="display: none;">
+                                 <p>Pilih E-Wallet:</p>
+                                <div class="d-flex justify-content-around" id="ewallet-logos">
+                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/2560px-Gopay_logo.svg.png" alt="Logo GoPay" class="payment-logo" data-value="gopay">
+                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/2560px-Logo_ovo_purple.svg.png" alt="Logo OVO" class="payment-logo" data-value="ovo">
+                                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/DANA_logo.svg/2560px-DANA_logo.svg.png" alt="Logo Dana" class="payment-logo" data-value="dana">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Kolom Kanan: Ringkasan Pesanan -->
+                <div class="col-lg-5">
+                    <div class="order-summary-card">
+                        <h2 class="section-title">Ringkasan Pesanan</h2>
+                        <div class="vstack gap-3 mb-4">
+                            <div class="order-item">
+                                <img src="https://placehold.co/100x100/E6DCD2/333333?text=UI/UX" alt="Ikon kursus UI/UX">
+                                <div>
+                                    <p class="order-item-title">Pengantar Desain UI/UX</p>
+                                    <p class="order-item-subtitle">Kursus Profesional</p>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <img src="https://placehold.co/100x100/A2D4C1/333333?text=Web" alt="Ikon kursus Web Dev">
+                                <div>
+                                    <p class="order-item-title">Pengantar Pengembangan Web</p>
+                                    <p class="order-item-subtitle">Kursus Profesional</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="couponCode" class="form-label fw-bold">Kode Kupon</label>
+                            <input type="text" class="form-control" id="couponCode" placeholder="Masukkan kode kupon">
+                        </div>
+
+                        <div class="vstack gap-2 price-summary">
+                            <div class="d-flex justify-content-between">
+                                <span>Subtotal</span>
+                                <span>Rp 1.500.000</span>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Diskon</span>
+                                <span>- Rp 150.000</span>
+                            </div>
+                            <hr class="my-2">
+                            <div class="d-flex justify-content-between total">
+                                <span>Total</span>
+                                <span id="totalAmount">Rp 1.350.000</span>
+                            </div>
+                        </div>
+
+                        <!-- Tombol submit sekarang menjadi bagian dari form -->
+                        <button class="btn btn-pay mt-4" type="submit">Bayar Sekarang</button>
+                        <p class="text-center mt-3 secure-payment-info">
+                            <i class="bi bi-lock-fill"></i> Pembayaran aman dengan enkripsi SSL
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // JavaScript untuk menampilkan/menyembunyikan form detail pembayaran
+        const paymentMethodRadios = document.querySelectorAll('input[name="paymentMethod"]');
+        const creditCardFields = document.getElementById('creditCardFields');
+        const virtualAccountFields = document.getElementById('virtualAccountFields');
+        const eWalletFields = document.getElementById('eWalletFields');
+
+        const ccInputs = creditCardFields.querySelectorAll('input');
+
+        paymentMethodRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Sembunyikan semua detail pembayaran
+                creditCardFields.style.display = 'none';
+                virtualAccountFields.style.display = 'none';
+                eWalletFields.style.display = 'none';
+
+                // Hapus atribut 'required' dari semua input kartu kredit
+                ccInputs.forEach(input => input.required = false);
+
+                // Tampilkan yang sesuai dengan pilihan
+                if (this.value === 'creditCard') {
+                    creditCardFields.style.display = 'block';
+                    // Tambahkan kembali atribut 'required'
+                    ccInputs.forEach(input => input.required = true);
+                } else if (this.value === 'virtualAccount') {
+                    virtualAccountFields.style.display = 'block';
+                } else if (this.value === 'eWallet') {
+                    eWalletFields.style.display = 'block';
+                }
+            });
+        });
+
+        // Bootstrap validation script
+        (() => {
+          'use strict'
+          const form = document.getElementById('checkoutForm')
+          form.addEventListener('submit', event => {
+            event.preventDefault()
+            event.stopPropagation()
+            
+            if (!form.checkValidity()) {
+              form.classList.add('was-validated')
+            } else {
+              // Jika form valid, tampilkan SweetAlert
+              const totalAmount = document.getElementById('totalAmount').textContent;
+              Swal.fire({
+                title: 'Konfirmasi Pesanan Anda',
+                html: `Anda akan melakukan pembayaran sebesar <strong>${totalAmount}</strong>.<br>Pastikan semua data sudah benar.`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#F5A623',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Ya, Bayar Sekarang!',
+                cancelButtonText: 'Batal'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire({
+                    title: 'Pembayaran Berhasil!',
+                    text: 'Terima kasih, pesanan Anda sedang diproses.',
+                    icon: 'success',
+                    confirmButtonColor: '#F5A623'
+                  }).then(() => {
+                      // Opsi: reset form atau redirect ke halaman lain
+                      form.reset();
+                      window.location.href = 'landing_page_login.html';
+                  });
+                }
+              });
+            }
+          }, false)
+        })();
+
+        // Logika untuk memilih logo bank/e-wallet
+        function setupLogoSelection(containerId) {
+            const container = document.getElementById(containerId);
+            const logos = container.querySelectorAll('.payment-logo');
+            logos.forEach(logo => {
+                logo.addEventListener('click', () => {
+                    // Hapus kelas 'selected' dari semua logo di kontainer ini
+                    logos.forEach(l => l.classList.remove('selected'));
+                    // Tambahkan kelas 'selected' ke logo yang diklik
+                    logo.classList.add('selected');
+                });
+            });
+        }
+
+        setupLogoSelection('bank-logos');
+        setupLogoSelection('ewallet-logos');
+
+    </script>
+</body>
+</html>

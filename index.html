@@ -4,170 +4,384 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NAKAMA - Belajar Langsung dari Praktisi Ahli</title>
-    <link rel="stylesheet" href="style/style.css" />
+
+    <!-- Bootstrap CSS (Versi Terbaru) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <link rel="stylesheet" href="/style/style.css" />
+
+    <!-- <style>
+      :root {
+        --color-primary: #f39c12;
+        --color-primary-hover: #af7415;
+        --color-accent-teal: #4a7c77;
+        --color-background: #fdfbf6;
+        --color-text-heading: #2c2a2a;
+        --color-text-body: #5b5858;
+        --color-text-secondary: #a19e9e;
+        --color-border: #e0dede;
+        --color-white: #ffffff;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fdfdfd; /* Sedikit off-white */
+        color: #343a40; /* Abu-abu gelap untuk teks */
+      }
+      .navbar {
+        padding: 1rem 0;
+        transition: background-color 0.3s ease-in-out;
+      }
+      .navbar-brand {
+        font-weight: 700;
+      }
+      .nav-link {
+        color: #495057;
+        font-weight: 500;
+      }
+      .nav-link:hover {
+        color: #f39c12;
+      }
+      .btn-custom-primary {
+        background-color: #f39c12;
+        border-color: #f39c12;
+        color: #fff;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.5rem;
+      }
+      .btn-custom-primary:hover {
+        background-color: #af7415;
+        border-color: #af7415;
+        color: #fff;
+      }
+      .hero-section {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url("https://i.imgur.com/K3t5s5w.jpeg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 8rem 0;
+        border-radius: 1rem;
+        margin-top: 1rem;
+      }
+      .hero-section h1 {
+        font-weight: 700;
+        font-size: 3.5rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-section p {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+      .btn-custom-outline {
+        border: 2px solid #fff;
+        color: #fff;
+        font-weight: 600;
+        padding: 0.6rem 2rem;
+        border-radius: 0.5rem;
+        background-color: transparent;
+      }
+      .btn-custom-outline:hover {
+        background-color: #fff;
+        color: #343a40;
+      }
+      .section-title {
+        font-weight: 600;
+        margin-bottom: 2.5rem;
+      }
+      .course-card,
+      .testimonial-card {
+        border: 1px solid #e9ecef;
+        border-radius: 0.75rem;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        height: 100%;
+      }
+      .course-card:hover,
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+      }
+      .course-card .card-img-top {
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem;
+      }
+      .course-card .card-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .course-card .card-text {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      .category-pill {
+        background-color: #e9ecef;
+        border: none;
+        color: #495057;
+        font-weight: 500;
+        padding: 0.6rem 1.5rem;
+      }
+      .category-pill:hover {
+        background-color: #dee2e6;
+      }
+      .testimonial-card .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .testimonial-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+      .testimonial-card .card-text {
+        font-style: italic;
+      }
+      .testimonial-card .student-name {
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+      .footer {
+        background-color: var(--color-background); /* Warna background gelap */
+        color: var(--color-text-secondary); /* Warna teks abu-abu terang */
+      }
+      .footer .nav-link {
+        color: var(--color-text-secondary);
+        font-weight: 400;
+      }
+      .footer .nav-link:hover {
+        color: var(--color-primary);
+      }
+      .footer .social-icons a {
+        color: var(--color-text-secondary);
+        font-size: 1.25rem;
+        transition: color 0.2s ease-in-out;
+      }
+      .footer .social-icons a:hover {
+        color: var(--color-primary);
+      }
+    </style> -->
   </head>
   <body>
-    <header class="header">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container">
-        <div class="logo">
-          <img src="asset/LOGO.png" alt="NAKAMA Logo" /> NAKAMA
-        </div>
-        <nav class="navbar" id="main-navbar">
-          <ul class="nav-links">
-            <li><a href="/daftar_kursus.html">Kelas</a></li>
-            <li><a href="#">Bootcamp</a></li>
-            <li><a href="#">Webinar</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-          <a href="#" class="btn btn-primary-nav">Daftar Gratis</a>
-        </nav>
-        <button class="burger-menu" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
+        <a class="navbar-brand" href="index.html">NAKAMA</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="daftar_kursus.html">Kelas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bootcamp.html">Bootcamp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+          </ul>
+          <a
+            href="sign_up.html"
+            class="btn btn-custom-primary d-none d-lg-inline-block ms-lg-3"
+            >Daftar Gratis</a
+          >
+        </div>
       </div>
-    </header>
+    </nav>
 
-    <main>
-      <section class="hero-section">
-        <div class="container">
-          <div class="hero-content">
-            <h1>Belajar Langsung dari Praktisi Ahli untuk Karir Impian Anda</h1>
-            <p>
-              Dapatkan keterampilan yang relevan dengan industri saat ini
-              melalui kelas online yang dipandu oleh para ahli.
-            </p>
-            <a href="/daftar_kursus.html" class="btn btn-secondary-hero"
-              >Lihat semua kelas</a
-            >
-          </div>
-        </div>
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Hero Section -->
+      <section class="hero-section text-center my-4">
+        <h1>Belajar Langsung dari Praktisi Ahli untuk Karir Impian Anda</h1>
+        <p class="mt-3 mb-4">
+          Dapatkan keterampilan yang relevan dengan industri saat ini melalui
+          kelas online yang dipandu oleh para ahli.
+        </p>
+        <a href="#" class="btn btn-custom-outline">Lihat semua kelas</a>
       </section>
 
-      <section class="section-padding featured-classes-section">
-        <div class="container">
-          <h2>Kelas Unggulan</h2>
-          <div class="class-cards">
-            <div class="card">
+      <!-- Kelas Unggulan -->
+      <section class="py-5">
+        <h2 class="text-center section-title">Kelas Unggulan</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="card course-card">
               <img
-                src="https://via.placeholder.com/300x200/C5E0DE/FFFFFF?text=Class+Image"
-                alt="Pengantar Pemrograman dengan Python"
+                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img-top"
+                alt="Programming Class"
               />
-              <div class="card-content">
-                <h3>Pengantar Pemrograman dengan Python</h3>
-                <p class="instructor">Dipandu oleh: Budi Santoso</p>
+              <div class="card-body">
+                <h5 class="card-title">Pengantar Pemrograman dengan Python</h5>
+                <p class="card-text">Dipandu oleh: Budi Santoso</p>
               </div>
             </div>
-            <div class="card">
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card course-card">
               <img
-                src="https://via.placeholder.com/300x200/B2D8D6/FFFFFF?text=Class+Image"
-                alt="Strategi Pemasaran Digital untuk Bisnis"
+                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img-top"
+                alt="Digital Marketing"
               />
-              <div class="card-content">
-                <h3>Strategi Pemasaran Digital untuk Bisnis</h3>
-                <p class="instructor">Dipandu oleh: Citra Dewi</p>
+              <div class="card-body">
+                <h5 class="card-title">
+                  Strategi Pemasaran Digital untuk Bisnis
+                </h5>
+                <p class="card-text">Dipandu oleh: Citra Dewi</p>
               </div>
             </div>
-            <div class="card">
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card course-card">
               <img
-                src="https://via.placeholder.com/300x200/D0E8E7/FFFFFF?text=Class+Image"
-                alt="Desain Antarmuka Pengguna (UI) dan Pengalaman Pengguna (UX)"
+                src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                class="card-img-top"
+                alt="UI/UX Design"
               />
-              <div class="card-content">
-                <h3>
+              <div class="card-body">
+                <h5 class="card-title">
                   Desain Antarmuka Pengguna (UI) dan Pengalaman Pengguna (UX)
-                </h3>
-                <p class="instructor">Dipandu oleh: Arya Putra</p>
+                </h5>
+                <p class="card-text">Dipandu oleh: Arya Putra</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section-padding popular-categories-section">
-        <div class="container">
-          <h2>Kategori Populer</h2>
-          <div class="categories">
-            <a href="#" class="category-tag active">Pemrograman</a>
-            <a href="#" class="category-tag">Pemasaran Digital</a>
-            <a href="#" class="category-tag">Desain UI/UX</a>
-          </div>
+      <!-- Kategori Populer -->
+      <section class="py-5 text-center">
+        <h2 class="section-title">Kategori Populer</h2>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <button class="btn rounded-pill category-pill">Pemrograman</button>
+          <button class="btn rounded-pill category-pill">
+            Pemasaran Digital
+          </button>
+          <button class="btn rounded-pill category-pill">Desain UI/UX</button>
         </div>
       </section>
 
-      <section class="section-padding testimonials-section">
-        <div class="container">
-          <h2>Testimoni Siswa</h2>
-          <div class="testimonial-cards">
-            <div class="testimonial-card">
-              <img
-                src="https://via.placeholder.com/80x80/F5CBA7/FFFFFF?text=Rina"
-                alt="Rina Wilaya"
-              />
-              <p class="quote">
-                "Kelas ini sangat membantu saya memahami dasar-dasar
-                pemrograman. Instrukturnya sangat kompeten dan mudah
-                dimengerti."
-              </p>
-              <p class="name">Rina Wilaya</p>
+      <!-- Testimoni Siswa -->
+      <section class="py-5">
+        <h2 class="text-center section-title">Testimoni Siswa</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="card testimonial-card">
+              <div class="card-body">
+                <img src="https://i.pravatar.cc/150?img=1" alt="Student 1" />
+                <p class="card-text">
+                  "Kelas ini sangat membantu saya memahami dasar-dasar
+                  pemrograman. Instrukturnya sangat kompeten dan mudah
+                  dimengerti."
+                </p>
+                <h6 class="student-name">Ana Wijaya</h6>
+              </div>
             </div>
-            <div class="testimonial-card">
-              <img
-                src="https://via.placeholder.com/80x80/A2D9CE/FFFFFF?text=Taufik"
-                alt="Taufik Rahman"
-              />
-              <p class="quote">
-                "Saya belajar banyak tentang strategi pemasaran digital yang
-                efektif. Materi yang diberikan sangat relevan dengan kebutuhan
-                industri saat ini."
-              </p>
-              <p class="name">Taufik Rahman</p>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card testimonial-card">
+              <div class="card-body">
+                <img src="https://i.pravatar.cc/150?img=3" alt="Student 2" />
+                <p class="card-text">
+                  "Saya belajar banyak tentang strategi pemasaran digital yang
+                  benar-benar relevan dengan kebutuhan industri saat ini."
+                </p>
+                <h6 class="student-name">Suria Rahman</h6>
+              </div>
             </div>
-            <div class="testimonial-card">
-              <img
-                src="https://via.placeholder.com/80x80/AED6F1/FFFFFF?text=Siti"
-                alt="Siti Aminah"
-              />
-              <p class="quote">
-                "Kelas desain UI/UX ini membuka wawasan baru bagi saya. Saya
-                sekarang lebih percaya diri dalam mendesain antarmuka pengguna
-                yang menarik dan fungsional."
-              </p>
-              <p class="name">Siti Aminah</p>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card testimonial-card">
+              <div class="card-body">
+                <img src="https://i.pravatar.cc/150?img=5" alt="Student 3" />
+                <p class="card-text">
+                  "Kelas desain UI/UX ini membuka wawasan saya, dan saya
+                  sekarang lebih percaya diri dalam merancang pengalaman
+                  pengguna yang menarik dan fungsional."
+                </p>
+                <h6 class="student-name">Siti Halimah</h6>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Contact</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+    <!-- Footer -->
+    <footer class="footer py-5 mt-5">
+      <div class="container text-center">
+        <ul class="nav justify-content-center mb-3">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-5">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-5">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-5">Privacy Policy</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-5">Terms of Service</a>
+          </li>
+        </ul>
+        <div class="social-icons mb-3">
+          <a href="#" class="px-2"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="px-2"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="px-2"><i class="bi bi-facebook"></i></a>
         </div>
-        <div class="social-icons">
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="Instagram"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="#" aria-label="LinkedIn"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-        </div>
-        <p class="copyright">&copy; 2025 NAKAMA. All rights reserved.</p>
+        <span class="copyright-text">© 2025 NAKAMA. All rights reserved.</span>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Bootstrap JS (Bundle) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

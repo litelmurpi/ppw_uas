@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp Intensif - NAKAMA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Palet Warna dari Group 3.png */
+        :root {
+            --primary-color: #F5A623; /* Oranye energik */
+            --primary-color-dark: #D9931C; /* Oranye lebih gelap untuk hover */
+            --text-heading: #2D2D2D; /* Judul utama (bukan hitam pekat) */
+            --text-body: #4F4F4F; /* Teks paragraf */
+            --text-secondary: #828282; /* Teks sekunder, placeholder */
+            --border-color: #E0E0E0; /* Garis pembatas */
+            --page-bg: #F9F7F4; /* Background krem */
+            --card-bg: #FFFFFF;
+            --teal-dark: #1F6456; /* Teal tua */
+            --mint-green: #A2D4C1; /* Hijau mint */
+            --mint-pale: #E6F2EF; /* Mint pucat */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text-body);
+        }
+
+        /* Navigasi */
+        .navbar {
+            background-color: var(--page-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-heading);
+        }
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-body);
+        }
+        .nav-link.active {
+            font-weight: 600;
+            color: var(--text-heading);
+        }
+        .btn-login {
+            font-weight: 600;
+            color: var(--text-heading);
+        }
+        .btn-signup {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            font-weight: 600;
+        }
+        .btn-signup:hover {
+            background-color: var(--primary-color-dark);
+            border-color: var(--primary-color-dark);
+            color: #fff;
+        }
+
+        /* Filter Sidebar */
+        .filter-sidebar {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+        }
+        .filter-sidebar .form-label {
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 0.75rem;
+        }
+        .filter-sidebar .form-select {
+            background-color: var(--page-bg);
+            border-color: var(--border-color);
+            color: var(--text-body);
+        }
+        .filter-sidebar .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(245, 166, 35, 0.2);
+        }
+
+
+        /* Konten Bootcamp */
+        .bootcamp-header h1 {
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+        .bootcamp-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+        .bootcamp-card {
+            background-color: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+         .bootcamp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,.07);
+        }
+        .bootcamp-card-body {
+            padding: 2rem;
+        }
+        .bootcamp-card-body .tag {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .bootcamp-card-body h3 {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--text-heading);
+        }
+        .bootcamp-card-body .details {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .bootcamp-card-body .btn-detail {
+            background-color: var(--page-bg);
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--text-heading);
+            padding: 0.5rem 1rem;
+        }
+        .bootcamp-card-body .btn-detail:hover {
+            background-color: #e9e5e0;
+            border-color: #dcd8d3;
+        }
+        
+        .bootcamp-card-img {
+            width: 280px;
+            height: 220px;
+            object-fit: cover;
+            border-left: 1px solid var(--border-color);
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 4rem 0 2rem 0;
+            text-align: center;
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+        }
+        .footer a:hover {
+            color: var(--text-heading);
+        }
+        .footer .social-icons i {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+        .footer .social-icons i:hover {
+            color: var(--text-heading);
+        }
+
+        @media (max-width: 991.98px) {
+            .bootcamp-card {
+                flex-direction: column-reverse; /* Gambar di atas */
+            }
+            .bootcamp-card-img {
+                width: 100%;
+                height: 200px;
+                border-left: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .bootcamp-card-body {
+                 padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container py-2">
+            <a class="navbar-brand" href="#">NAKAMA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Kelas</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Bootcamp</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Komunitas</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="#" class="btn btn-login">Masuk</a>
+                    <a href="#" class="btn btn-signup rounded-pill px-3">Daftar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Konten Utama -->
+    <div class="container my-5">
+        <div class="row g-5">
+            <!-- Sidebar Filter -->
+            <div class="col-lg-3">
+                <aside class="filter-sidebar h-100">
+                    <h4 class="fw-bold mb-4">Filter</h4>
+                    <div class="mb-4">
+                        <label for="filterTopik" class="form-label">Topik</label>
+                        <select class="form-select" id="filterTopik">
+                            <option selected>Semua Topik</option>
+                            <option value="1">Data Science</option>
+                            <option value="2">Pengembangan Web</option>
+                            <option value="3">Desain UI/UX</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="filterJadwal" class="form-label">Jadwal</label>
+                        <select class="form-select" id="filterJadwal">
+                            <option selected>Semua Jadwal</option>
+                            <option value="1">Pagi</option>
+                            <option value="2">Malam</option>
+                            <option value="3">Akhir Pekan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="filterStatus" class="form-label">Status Pendaftaran</label>
+                        <select class="form-select" id="filterStatus">
+                            <option selected>Semua Status</option>
+                            <option value="1">Buka</option>
+                            <option value="2">Tutup</option>
+                        </select>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Daftar Bootcamp -->
+            <div class="col-lg-9">
+                <header class="bootcamp-header mb-5">
+                    <h1>Intensive Bootcamp</h1>
+                    <p>Tingkatkan keterampilan Anda dengan bootcamp intensif kami yang dirancang untuk kesuksesan karir.</p>
+                </header>
+
+                <div class="bootcamp-list">
+                    <!-- Bootcamp Card 1: Data Science -->
+                    <div class="bootcamp-card">
+                        <div class="bootcamp-card-body flex-grow-1">
+                            <p class="tag">Bootcamp</p>
+                            <h3>Bootcamp Data Science</h3>
+                            <p class="details">
+                                Durasi: 12 Minggu &middot; Jadwal: Senin-Jumat, 09:00-17:00 &middot; Hasil: Penempatan Kerja
+                            </p>
+                            <a href="#" class="btn btn-detail rounded-pill mt-3">Lihat Detail Bootcamp</a>
+                        </div>
+                        <img src="https://placehold.co/280x220/1F6456/FFFFFF?text=Minimal%0ADatascience%0ABootcamp" class="bootcamp-card-img" alt="Bootcamp Data Science">
+                    </div>
+
+                    <!-- Bootcamp Card 2: Web Development -->
+                    <div class="bootcamp-card">
+                        <div class="bootcamp-card-body flex-grow-1">
+                            <p class="tag">Bootcamp</p>
+                            <h3>Bootcamp Pengembangan Web</h3>
+                            <p class="details">
+                                Durasi: 10 Minggu &middot; Jadwal: Senin-Jumat, 09:00-17:00 &middot; Hasil: Proyek Portofolio
+                            </p>
+                            <a href="#" class="btn btn-detail rounded-pill mt-3">Lihat Detail Bootcamp</a>
+                        </div>
+                        <img src="https://placehold.co/280x220/DCE3E8/333333?text=BOOTTCAMP" class="bootcamp-card-img" alt="Bootcamp Web Development">
+                    </div>
+
+                    <!-- Bootcamp Card 3: UI/UX Design -->
+                    <div class="bootcamp-card">
+                        <div class="bootcamp-card-body flex-grow-1">
+                            <p class="tag">Bootcamp</p>
+                            <h3>Bootcamp Desain UI/UX</h3>
+                            <p class="details">
+                                Durasi: 8 Minggu &middot; Jadwal: Senin-Jumat, 09:00-17:00 &middot; Hasil: Sertifikasi Industri
+                            </p>
+                            <a href="#" class="btn btn-detail rounded-pill mt-3">Lihat Detail Bootcamp</a>
+                        </div>
+                        <img src="https://placehold.co/280x220/EDEAE6/333333?text=UI/UX%0ADESIGN" class="bootcamp-card-img" alt="Bootcamp UI/UX Design">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+             <div class="social-icons d-flex justify-content-center gap-4 mb-4">
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-facebook"></i></a>
+            </div>
+            <p class="text-muted">&copy; 2025 NAKAMA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

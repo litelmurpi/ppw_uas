@@ -29,6 +29,74 @@
 
     <!-- Link ke Stylesheet Eksternal -->
     <link rel="stylesheet" href="style/style.css" />
+    <style>
+      .page-title {
+        font-weight: 700;
+      }
+      .roadmap-tabs .nav-link {
+        color: var(--color-text-secondary);
+        border: none;
+        border-bottom: 3px solid transparent;
+        font-weight: 600;
+        padding-left: 0;
+        padding-right: 0;
+        margin-right: 2rem;
+      }
+      .roadmap-tabs .nav-link.active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+      }
+      .tab-content .tab-pane {
+        transition: opacity 0.3s ease-in-out;
+      }
+      .timeline {
+        position: relative;
+        padding-left: 1.5rem;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: 20px;
+        bottom: 1.5rem;
+        width: 3px;
+        background-color: #f0f0f0;
+        border-radius: 3px;
+      }
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+        padding-left: 3rem;
+      }
+      .timeline-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: var(--color-accent-teal);
+        color: var(--color-white);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        border: 3px solid var(--color-background);
+      }
+      .timeline-card {
+        border: 1px solid var(--color-border);
+        border-radius: 0.75rem;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        background-color: var(--color-white);
+      }
+      .timeline-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+      }
+      .timeline-card h5 {
+        font-weight: 600;
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -48,14 +116,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Kelas</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Bootcamp</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Komunitas</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Webinar</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="daftar_kursus.html">Kelas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bootcamp.html">Bootcamp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="komunitas.html">Komunitas</a>
+            </li>
           </ul>
           <div class="d-flex ms-lg-3">
-            <a href="sign_up.html" class="btn btn-outline-secondary me-2"
+            <a href="login.html" class="btn btn-outline-secondary me-2"
               >Masuk</a
             >
             <a href="sign_up.html" class="btn btn-custom-primary">Daftar</a>

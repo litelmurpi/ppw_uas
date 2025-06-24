@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NAKAMA Project - Master Stylesheet
+   NAKAMA Project - Main Framework Stylesheet
    ========================================================================== */
 
 /* # PALET WARNA & FONT (SUMBER KEBENARAN TUNGGAL)
@@ -15,16 +15,21 @@
   --color-background: #fdfbf6;
   --color-white: #ffffff;
   --color-text-heading: #2c2a2a;
+  --text-secondary: #6c757d;
   --color-text-body: #5b5858;
   --color-text-secondary: #a19e9e;
   --color-border: #e0dede;
+  --card-bg: #ffffff;
+  --sidebar-width: 320px;
+  --light-gray: #f8f9fa;
+  --text-dark: #212529;
 
   /* --- Fonts --- */
   --font-heading: "Poppins", sans-serif;
   --font-body: "Work Sans", sans-serif;
 }
 
-/* # GENERAL & RESET STYLES
+/* # GAYA UMUM & RESET
     -------------------------------------------------------------------------- */
 body {
   font-family: var(--font-body);
@@ -43,15 +48,12 @@ h6 {
   font-weight: 700;
 }
 
-.section-title {
-  font-weight: 600;
-  margin-bottom: 2.5rem;
-}
-
 /* # NAVBAR STYLES
     -------------------------------------------------------------------------- */
 .navbar {
   padding: 1rem 0;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
   transition: background-color 0.3s ease-in-out;
 }
 .navbar-brand {
@@ -62,12 +64,10 @@ h6 {
   color: var(--color-text-body);
   font-weight: 500;
 }
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: var(--color-primary);
 }
-
-/* # BUTTON STYLES (Sistem Tombol Terpusat)
-    -------------------------------------------------------------------------- */
 .btn-custom-primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
@@ -81,20 +81,6 @@ h6 {
   border-color: var(--color-primary-hover);
   color: var(--color-white);
 }
-
-.btn-custom-outline {
-  border: 2px solid var(--color-white);
-  color: var(--color-white);
-  font-weight: 600;
-  padding: 0.6rem 2rem;
-  border-radius: 0.5rem;
-  background-color: transparent;
-}
-.btn-custom-outline:hover {
-  background-color: var(--color-white);
-  color: var(--color-text-heading);
-}
-
 .btn-outline-secondary {
   border-color: var(--color-border);
   color: var(--color-text-body);
@@ -103,183 +89,6 @@ h6 {
 .btn-outline-secondary:hover {
   background-color: var(--color-border);
   color: var(--color-text-heading);
-}
-
-/* # LANDING PAGE STYLES (index.html)
-    -------------------------------------------------------------------------- */
-.hero-section {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("https://i.imgur.com/K3t5s5w.jpeg");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 8rem 0;
-  border-radius: 1rem;
-  margin-top: 1rem;
-}
-.hero-section h1 {
-  font-weight: 700;
-  font-size: 3.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-  color: var(--color-white);
-}
-.hero-section p {
-  max-width: 600px;
-  margin: 1rem auto 2rem auto;
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-.course-card,
-.testimonial-card {
-  border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  height: 100%;
-  background-color: var(--color-white);
-}
-.course-card:hover,
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
-}
-.course-card .card-title,
-.testimonial-card .card-title {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.category-pill {
-  background-color: #e9ecef;
-  border: none;
-  color: #495057;
-  font-weight: 500;
-  padding: 0.6rem 1.5rem;
-}
-.testimonial-card img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-/* # LOGIN/SIGN UP PAGE STYLES (sign_up.html)
-    -------------------------------------------------------------------------- */
-.login-container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.login-card {
-  border: none;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-}
-.visual-column {
-  background-color: var(--color-accent-peach);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem;
-}
-.form-column {
-  padding: 3rem;
-  background-color: var(--color-white);
-}
-.separator {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: var(--color-text-secondary);
-  margin: 1.5rem 0;
-}
-.separator::before,
-.separator::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid var(--color-border);
-}
-.separator:not(:empty)::before {
-  margin-right: 0.25em;
-}
-.separator:not(:empty)::after {
-  margin-left: 0.25em;
-}
-
-.bottom-link a {
-  color: var(--color-primary);
-}
-
-/* # ROADMAP PAGE STYLES (roadmap.html)
-    -------------------------------------------------------------------------- */
-.page-title {
-  font-weight: 700;
-  color: var(--color-text-heading);
-}
-.roadmap-tabs .nav-link {
-  color: var(--color-text-secondary);
-  border: none;
-  border-bottom: 3px solid transparent;
-  font-weight: 600;
-  padding-left: 0;
-  padding-right: 0;
-  margin-right: 2rem;
-}
-.roadmap-tabs .nav-link.active {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
-}
-.tab-content .tab-pane {
-  transition: opacity 0.3s ease-in-out;
-}
-.timeline {
-  position: relative;
-  padding-left: 1.5rem;
-}
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: 1.5rem;
-  left: 20px;
-  bottom: 1.5rem;
-  width: 3px;
-  background-color: #f0f0f0;
-  border-radius: 3px;
-}
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-  padding-left: 3rem;
-}
-.timeline-icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: var(--color-accent-teal);
-  color: var(--color-white);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  border: 3px solid var(--color-background);
-}
-.timeline-card {
-  border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  background-color: var(--color-white);
-}
-.timeline-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
-}
-.timeline-card h5 {
-  font-weight: 600;
 }
 
 /* # FOOTER STYLES (Konsisten untuk semua halaman)

@@ -23,42 +23,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style/style.css" />
-
-    <!-- <style>
-      /* ==========================================================================
-         NAKAMA Project - Color Palette & Style Guide
-         ========================================================================== */
-      :root {
-        /* --- Primary & Accent Colors --- */
-        --color-primary: #f39c12;
-        --color-primary-hover: #af7415;
-        --color-accent-teal: #4a7c77;
-        --color-accent-mint: #a8d8d1;
-        --color-accent-mint-light: #e5f2f0;
-        --color-accent-peach: #faebd7; /* Warna untuk kolom visual */
-
-        /* --- Neutral & Text Colors --- */
-        --color-background: #fdfbf6;
-        --color-text-heading: #2c2a2a;
-        --color-text-body: #5b5858;
-        --color-text-secondary: #a19e9e;
-        --color-border: #e0dede;
-        --color-white: #ffffff;
-
-        /* --- Semantic Colors (for status messages) --- */
-        --color-success: #2ecc71;
-        --color-danger: #e74c3c;
-        --color-warning: #f1c40f;
-      }
-
-      /* ==========================================================================
-         Component Styles (Menggunakan Variabel Warna)
-         ========================================================================== */
-      body {
-        background-color: var(--color-background); /* Menggunakan variabel */
-        font-family: "Poppins", sans-serif;
-        color: var(--color-text-body); /* Menggunakan variabel */
-      }
+    <style>
       .login-container {
         min-height: 100vh;
         display: flex;
@@ -72,51 +37,28 @@
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
       }
       .visual-column {
-        background-color: var(--color-accent-peach); /* Menggunakan variabel */
+        background-color: var(--color-accent-peach);
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 3rem;
       }
-      .visual-column img {
-        max-width: 100%;
-        height: auto;
-      }
       .form-column {
         padding: 3rem;
         background-color: var(--color-white);
-      }
-      h2 {
-        color: var(--color-text-heading);
-      }
-      .form-label {
-        font-weight: 500;
-        color: var(--color-text-body);
-      }
-      .btn-custom-primary {
-        background-color: var(--color-primary); /* Menggunakan variabel */
-        border-color: var(--color-primary); /* Menggunakan variabel */
-        color: var(--color-white); /* Menggunakan variabel */
-        font-weight: 600;
-        padding: 0.75rem;
-      }
-      .btn-custom-primary:hover {
-        background-color: var(--color-primary-hover); /* Menggunakan variabel */
-        border-color: var(--color-primary-hover); /* Menggunakan variabel */
-        color: var(--color-white);
       }
       .separator {
         display: flex;
         align-items: center;
         text-align: center;
-        color: var(--color-text-secondary); /* Menggunakan variabel */
+        color: var(--color-text-secondary);
         margin: 1.5rem 0;
       }
       .separator::before,
       .separator::after {
         content: "";
         flex: 1;
-        border-bottom: 1px solid var(--color-border); /* Menggunakan variabel */
+        border-bottom: 1px solid var(--color-border);
       }
       .separator:not(:empty)::before {
         margin-right: 0.25em;
@@ -124,16 +66,10 @@
       .separator:not(:empty)::after {
         margin-left: 0.25em;
       }
-      .btn-social {
-        font-weight: 500;
-      }
-      .bottom-link {
-        font-size: 0.9rem;
-      }
       .bottom-link a {
         color: var(--color-primary);
       }
-    </style> -->
+    </style>
   </head>
   <body>
     <div class="container login-container">

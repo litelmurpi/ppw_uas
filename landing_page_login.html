@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NAKAMA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* --- Google Font Import --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        /* --- CSS Reset & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fcfbf8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #000;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        /* --- Header / Navigation --- */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            font-size: 16px;
+        }
+        
+        .user-profile img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .nav-item.dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle::after {
+            content: ' ▼';
+            font-size: 0.7em;
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 150%;
+            left: 0;
+            background-color: #ffffff;
+            list-style: none;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            display: block;
+            color: #555;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #f5f5f5;
+            color: #000;
+        }
+        
+        /* --- Main Content --- */
+        .main-content {
+            padding: 60px 0;
+        }
+        .welcome-section { text-align: center; margin-bottom: 70px; }
+        .welcome-section h1 { font-size: 42px; font-weight: 700; color: #222; margin-bottom: 8px; }
+        .welcome-section p { font-size: 18px; color: #666; }
+        .courses-section { margin-bottom: 70px; }
+        .section-title { font-size: 28px; margin-bottom: 30px; color: #222; }
+        .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .card { background-color: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); }
+        .card-image { height: 200px; width: 100%; object-fit: cover; }
+        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; flex-grow: 1; }
+        .card-date { font-size: 14px; color: #888; margin-top: auto; }
+        
+        .course-card-trigger {
+            cursor: pointer;
+        }
+
+        /* --- Footer --- */
+        .footer { margin-top: 60px; padding: 40px 0; text-align: center; font-size: 14px; color: #777; border-top: 1px solid #eee; }
+        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 20px; }
+        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
+        .social-icons a { font-size: 20px; }
+        .copyright { font-size: 13px; }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #f0f4f3; /* Warna latar belakang modal */
+            padding: 24px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 650px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 32px;
+            color: #888;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .modal-close-btn:hover {
+            color: #333;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            object-fit: cover;
+        }
+
+        .modal-progress-container {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .progress-bar-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .progress-bar {
+            flex-grow: 1;
+            height: 8px;
+            background-color: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar-inner {
+            width: 75%; /* Sesuai contoh */
+            height: 100%;
+            background-color: #333;
+            border-radius: 4px;
+        }
+
+        .modal-lesson-info {
+            margin-top: 24px;
+        }
+
+        .modal-lesson-info p {
+            font-size: 15px;
+            color: #555;
+        }
+        
+        .modal-lesson-info h3 {
+            font-size: 20px;
+            color: #222;
+            margin-top: 4px;
+        }
+
+        .modal-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 24px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #f7b731;
+            color: #333;
+        }
+        .btn-primary:hover {
+            background-color: #f8c14a;
+        }
+
+        .modal-link {
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .modal-instructor {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        @media (max-width: 992px) { .card-grid { grid-template-columns: repeat(2, 1fr); } .welcome-section h1 { font-size: 36px; } }
+        @media (max-width: 768px) { .header .container { flex-direction: column; gap: 20px; } .nav-links { flex-direction: column; gap: 20px; } .card-grid { grid-template-columns: 1fr; } .welcome-section h1 { font-size: 32px; } .welcome-section p { font-size: 16px; } .section-title { font-size: 24px; } .footer-links { flex-direction: column; gap: 15px; } }
+   </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">NAKAMA</a>
+            <div class="nav-links">
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="index.html">Beranda</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown-toggle" id="kategori-dropdown-toggle">Jelajahi</a>
+                            <ul class="dropdown-menu" id="kategori-dropdown-menu">
+                                <li><a href="bootcamp.html">Bootcamp</a></li>
+                                <li><a href="daftar_kursus.html">Kelas</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </nav>
+                <div class="user-profile">
+                    <a href="#">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Foto Profil Maya">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="welcome-section">
+                <h1>Selamat datang kembali, Ukyo!</h1>
+                <p>Mari kita lanjutkan perjalanan belajar Anda.</p>
+            </section>
+            <section class="courses-section">
+                <h2 class="section-title">Kelas yang Saya Ikuti</h2>
+                <div class="card-grid">
+                    <div class="card course-card-trigger">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop" alt="Pengantar Pemrograman Python" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Pengantar Pemrograman Python</h3>
+                            <p class="card-date">Mulai 15 Sep 2025</p>
+                        </div>
+                    </div>
+                    <div class="card course-card-trigger">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop" alt="Desain Grafis untuk Pemula" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Desain Grafis untuk Pemula</h3>
+                            <p class="card-date">Mulai 20 Okt 2025</p>
+                        </div>
+                    </div>
+                    <div class="card course-card-trigger">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=2071&auto=format&fit=crop" alt="Pemasaran Digital Tingkat Lanjut" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">Pemasaran Digital Tingkat Lanjut</h3>
+                            <p class="card-date">Mulai 5 Nov 2025</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="recommendations-section">
+                <h2 class="section-title">Rekomendasi Untuk Anda</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <img 
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" 
+                        alt="Ilmu Data untuk Bisnis" 
+                        class="card-image">
+                    <div class="card-content"><h3 class="card-title">Ilmu Data untuk Bisnis</h3><p class="card-description">Tingkatkan pengambilan keputusan bisnis Anda</p></div></div>
+                    <div class="card"><img src="https://images.unsplash.com/photo-1512428559084-b3de39636a92?q=80&w=1974&auto=format&fit=crop" alt="Desain Pengalaman Pengguna (UX)" class="card-image"><div class="card-content"><h3 class="card-title">Desain Pengalaman Pengguna (UX)</h3><p class="card-description">Ciptakan pengalaman pengguna yang luar biasa</p></div></div>
+                    <div class="card"><img src="https://images.unsplash.com/photo-1579621970795-87f55d907079?q=80&w=2070&auto=format&fit=crop" alt="Literasi Keuangan Pribadi" class="card-image"><div class="card-content"><h3 class="card-title">Literasi Keuangan Pribadi</h3><p class="card-description">Kelola keuangan Anda dengan bijak</p></div></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        </footer>
+
+    <div class="modal-overlay" id="course-modal">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <img src="" alt="Course Image" class="modal-img" id="modal-course-image">
+            
+            <div class="modal-progress-container">
+                <p>You have completed 75% of this course.</p>
+                <div class="progress-bar-wrapper">
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner"></div>
+                    </div>
+                    <span>75%</span>
+                </div>
+            </div>
+
+            <div class="modal-lesson-info">
+                <p>Continue with the next lesson:</p>
+                <h3 id="modal-course-title">Lesson 3: Advanced Techniques</h3>
+            </div>
+
+            <a href="#" class="modal-btn btn-primary">Continue Learning</a>
+            <a href="#" class="modal-link">View All Course Materials</a>
+
+            <p class="modal-instructor">Instructor: Ms. Evelyn Reed</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-facebook"></i></a>
+            </div><p class="copyright">&copy; 2025 NAKAMA. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Script untuk dropdown
+            const dropdownToggle = document.getElementById('kategori-dropdown-toggle');
+            const dropdownMenu = document.getElementById('kategori-dropdown-menu');
+            if (dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    dropdownMenu.classList.toggle('show');
+                });
+            }
+            window.addEventListener('click', function(event) {
+                if (dropdownToggle && !dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    if (dropdownMenu.classList.contains('show')) {
+                        dropdownMenu.classList.remove('show');
+                    }
+                }
+            });
+
+            // === JAVASCRIPT UNTUK MODAL POPUP ===
+            const courseCards = document.querySelectorAll('.course-card-trigger');
+            const modal = document.getElementById('course-modal');
+            const closeModalBtn = document.querySelector('.modal-close-btn');
+            const modalCourseImage = document.getElementById('modal-course-image');
+            const modalCourseTitle = document.getElementById('modal-course-title');
+
+            courseCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Ambil data dari kartu yang diklik
+                    const courseImageSrc = card.querySelector('.card-image').src;
+                    const courseTitle = card.querySelector('.card-title').textContent;
+
+                    // Masukkan data ke dalam modal
+                    modalCourseImage.src = courseImageSrc;
+                    // Untuk contoh, kita ubah judul di modal sesuai judul kartu
+                    // Di aplikasi nyata, Anda akan mengambil data pelajaran berikutnya
+                    modalCourseTitle.textContent = "Next Lesson for: " + courseTitle;
+
+                    // Tampilkan modal
+                    modal.style.display = 'flex';
+                });
+            });
+
+            // Fungsi untuk menutup modal
+            function closeModal() {
+                modal.style.display = 'none';
+            }
+
+            // Event listener untuk tombol tutup (X)
+            closeModalBtn.addEventListener('click', closeModal);
+
+            // Event listener untuk menutup modal saat mengklik area overlay
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Event listener untuk menutup modal dengan tombol Escape
+            window.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+            // ===========================================
+        });
+    </script>
+
+</body>
+</html>

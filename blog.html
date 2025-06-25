@@ -7,28 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
 
     <style>
-        /* CSS Reset and Basic Setup */
-        :root {
-            --primary-color: #333;
-            --secondary-color: #6c757d;
-            --background-color: #f8f9fa;
-            --widget-background: #ffffff;
-            --border-color: #dee2e6;
-            --yellow-accent: #ffc107;
-            --text-color-light: #495057;
-            --font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            font-family: var(--font-family);
-            margin: 0;
-            background-color: var(--background-color);
-            color: var(--primary-color);
-        }
-
         a {
             text-decoration: none;
             color: inherit;
@@ -78,7 +64,7 @@
             transition: color 0.3s;
         }
         .nav-links a:hover, .nav-links a.active {
-            color: var(--primary-color);
+            color: var(--text-dark);
         }
 
         .profile-icon img {
@@ -135,14 +121,14 @@
         }
 
         .btn-primary {
-            background-color: var(--yellow-accent);
-            color: var(--primary-color);
+            background-color: var(--color-primary);
+            color: var(--text-dark);
         }
 
         .btn-secondary {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--gray-300);
             backdrop-filter: blur(5px);
-            color: var(--primary-color);
+            color: var(--text-dark);
         }
 
         /* Articles Section */
@@ -251,7 +237,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .category-tag:hover {
-            background-color: var(--primary-color);
+            background-color: var(--text-dark);
             color: white;
         }
 
@@ -302,10 +288,10 @@
             transition: background-color 0.3s, color 0.3s;
         }
         .pagination a:hover {
-            background-color: var(--yellow-accent);
+            background-color: var(--color-primary);
         }
         .pagination a.active {
-            background-color: var(--primary-color);
+            background-color: var(--text-dark);
             color: white;
         }
 

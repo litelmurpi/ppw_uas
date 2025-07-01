@@ -88,7 +88,7 @@
                 <h2 class="fw-bold mb-4">Create New Account</h2>
               </div>
 
-              <form>
+              <form class="needs-validation" novalidate>
                 <div class="mb-3">
                   <label for="fullName" class="form-label">Full Name</label>
                   <input
@@ -96,7 +96,11 @@
                     class="form-control"
                     id="fullName"
                     placeholder="Enter your full name"
+                    required
                   />
+                  <div class="invalid-feedback">
+                    Please enter your full name.
+                  </div>
                 </div>
 
                 <div class="mb-3">
@@ -106,7 +110,11 @@
                     class="form-control"
                     id="email"
                     placeholder="Enter your email"
+                    required
                   />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
                 </div>
 
                 <div class="mb-3">
@@ -118,7 +126,9 @@
                     class="form-control"
                     id="password"
                     placeholder="Create a password"
+                    required
                   />
+                  <div class="invalid-feedback">Please create a password.</div>
                 </div>
 
                 <div class="form-check mb-4">
@@ -127,10 +137,14 @@
                     type="checkbox"
                     value=""
                     id="termsCheck"
+                    required
                   />
                   <label class="form-check-label" for="termsCheck">
                     I agree to the Terms & Conditions
                   </label>
+                  <div class="invalid-feedback">
+                    You must agree to the terms and conditions.
+                  </div>
                 </div>
 
                 <div class="d-grid">
@@ -178,5 +192,68 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      // Interactive Bootstrap form validation
+      (() => {
+        "use strict";
+
+        const form = document.querySelector(".needs-validation");
+        if (!form) return;
+
+        // Function to validate a field and apply classes
+        const validateField = (field) => {
+          if (field.checkValidity()) {
+            field.classList.remove("is-invalid");
+            field.classList.add("is-valid");
+          } else {
+            field.classList.remove("is-valid");
+            field.classList.add("is-invalid");
+          }
+        };
+
+        // Add live validation on input for text-like fields
+        form.addEventListener("input", (event) => {
+          const target = event.target;
+          if (
+            target.matches(
+              'input[type="text"], input[type="email"], input[type="password"]'
+            )
+          ) {
+            validateField(target);
+          }
+        });
+
+        // Add live validation on change for checkbox
+        form.addEventListener("change", (event) => {
+          const target = event.target;
+          if (target.matches('input[type="checkbox"]')) {
+            validateField(target);
+          }
+        });
+
+        // Final validation on submit
+        form.addEventListener(
+          "submit",
+          (event) => {
+            // Prevent the form from submitting via the browser's default behavior
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Add 'was-validated' class to the form to show all validation feedback
+            form.classList.add("was-validated");
+
+            // If the form is valid after checking, redirect to the login page
+            if (form.checkValidity()) {
+              // Use a brief delay to allow the user to see the success state (valid inputs)
+              setTimeout(() => {
+                window.location.href = "login.html";
+              }, 200); // 200ms delay
+            }
+          },
+          false
+        );
+      })();
+    </script>
   </body>
 </html>

@@ -1,507 +1,638 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAKAMA - Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NAKAMA - Artikel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style/style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style/style.css" />
 
     <style>
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-        /* Header / Navigation */
-        .header {
-            background-color: var(--widget-background);
-            border-bottom: 1px solid #f0f0f0;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+      /* Header / Navigation */
+      .header {
+        background-color: var(--widget-background);
+        border-bottom: 1px solid #f0f0f0;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
 
-        .nav-links ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 30px;
-        }
-        
+      .nav-links ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 30px;
+      }
 
-        .nav-links a {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--secondary-color);
-            transition: color 0.3s;
-        }
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--text-dark);
-        }
+      .nav-links a {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--secondary-color);
+        transition: color 0.3s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--text-dark);
+      }
 
-        .profile-icon img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+      .profile-icon img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
 
-        /* Main Content Layout */
-        .main-wrapper {
-            padding: 40px 0;
-        }
+      /* Main Content Layout */
+      .main-wrapper {
+        padding: 40px 0;
+      }
 
-        .main-grid {
-            display: grid;
-            grid-template-columns: 2.5fr 1fr;
-            gap: 40px;
-        }
+      .main-grid {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr;
+        gap: 40px;
+      }
 
-        /* Featured Article */
-        .featured-article {
-            position: relative;
-            margin-bottom: 40px;
-        }
+      /* Featured Article */
+      .featured-article {
+        position: relative;
+        margin-bottom: 40px;
+      }
 
-        .featured-article img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 12px;
-            display: block;
-        }
+      .featured-article img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        display: block;
+      }
 
-        .featured-actions {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            display: flex;
-            gap: 10px;
-        }
+      .featured-actions {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        gap: 10px;
+      }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-        }
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
 
-        .btn-primary {
-            background-color: var(--color-primary);
-            color: var(--text-dark);
-        }
+      .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--text-dark);
+      }
+      .btn-primary:hover {
+        background-color: #e0951c;
+        border-color: #e0951c;
+      }
 
-        .btn-secondary {
-            background-color: var(--gray-300);
-            backdrop-filter: blur(5px);
-            color: var(--text-dark);
-        }
+      .btn-secondary {
+        background-color: var(--gray-300);
+        backdrop-filter: blur(5px);
+        color: var(--text-dark);
+      }
 
-        /* Articles Section */
-        .section-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
+      /* Articles Section */
+      .section-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
 
+      .article-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .article-card {
+        background-color: var(--widget-background);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .article-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .article-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin: 0 0 10px 0;
+        min-height: 45px; /* Ensures consistent height */
+      }
+
+      .card-meta {
+        font-size: 13px;
+        color: var(--secondary-color);
+        margin: 0;
+      }
+      .card-meta span {
+        display: block;
+      }
+      .card-meta .read-time {
+        margin-top: 5px;
+      }
+
+      /* Sidebar */
+      .sidebar .widget {
+        background-color: var(--widget-background);
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .search-box {
+        position: relative;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 12px 15px 12px 40px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+      .search-box i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--secondary-color);
+      }
+
+      .widget-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .category-tag {
+        background-color: #f1f3f5;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .category-tag:hover {
+        background-color: var(--text-dark);
+        color: white;
+      }
+
+      .popular-article {
+        display: flex;
+        gap: 15px;
+        align-items: flex-start;
+        margin-bottom: 15px;
+      }
+      .popular-article:last-child {
+        margin-bottom: 0;
+      }
+      .popular-article img {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+      .popular-info .title {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4;
+        margin: 0 0 5px 0;
+      }
+      .popular-info .meta {
+        font-size: 12px;
+        color: var(--secondary-color);
+      }
+
+      /* Pagination */
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 40px;
+      }
+      .pagination a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background-color: var(--widget-background);
+        font-weight: 500;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .pagination a:hover {
+        background-color: var(--color-primary);
+      }
+      .pagination a.active {
+        background-color: var(--text-dark);
+        color: white;
+      }
+
+      /* Footer */
+      .footer {
+        margin-top: 60px;
+        padding: 40px 0;
+        text-align: center;
+        font-size: 14px;
+        color: #777;
+        border-top: 1px solid #eee;
+      }
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 20px;
+      }
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-bottom: 20px;
+      }
+      .social-icons a {
+        font-size: 20px;
+      }
+      .copyright {
+        font-size: 13px;
+      }
+      /* Responsive */
+      @media (max-width: 1024px) {
         .article-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+          grid-template-columns: repeat(2, 1fr);
         }
+      }
 
-        .article-card {
-            background-color: var(--widget-background);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+      @media (max-width: 768px) {
+        .main-grid {
+          grid-template-columns: 1fr;
         }
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        .sidebar {
+          margin-top: 40px;
         }
+        .article-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-container {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .footer-content {
+          flex-direction: column;
+        }
+      }
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .article-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
-        .article-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
+      @media (max-width: 768px) {
+        .main-grid {
+          grid-template-columns: 1fr;
         }
-
-        .card-content {
-            padding: 20px;
+        .sidebar {
+          margin-top: 40px;
         }
-
-        .card-title {
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.4;
-            margin: 0 0 10px 0;
-            min-height: 45px; /* Ensures consistent height */
+        .article-grid {
+          grid-template-columns: 1fr;
         }
-
-        .card-meta {
-            font-size: 13px;
-            color: var(--secondary-color);
-            margin: 0;
+        .nav-container {
+          flex-direction: column;
+          gap: 15px;
         }
-        .card-meta span {
-            display: block;
+        .footer-content {
+          flex-direction: column;
         }
-        .card-meta .read-time {
-            margin-top: 5px;
-        }
-
-        /* Sidebar */
-        .sidebar .widget {
-            background-color: var(--widget-background);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 15px 12px 40px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-family: inherit;
-        }
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--secondary-color);
-        }
-
-        .widget-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .category-tag {
-            background-color: #f1f3f5;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .category-tag:hover {
-            background-color: var(--text-dark);
-            color: white;
-        }
-
-        .popular-article {
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        .popular-article:last-child {
-            margin-bottom: 0;
-        }
-        .popular-article img {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .popular-info .title {
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1.4;
-            margin: 0 0 5px 0;
-        }
-        .popular-info .meta {
-            font-size: 12px;
-            color: var(--secondary-color);
-        }
-        
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 40px;
-        }
-        .pagination a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background-color: var(--widget-background);
-            font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .pagination a:hover {
-            background-color: var(--color-primary);
-        }
-        .pagination a.active {
-            background-color: var(--text-dark);
-            color: white;
-        }
-
-        /* Footer */
-        .footer { margin-top: 60px; padding: 40px 0; text-align: center; font-size: 14px; color: #777; border-top: 1px solid #eee; }
-        .footer-links { display: flex; justify-content: center; gap: 40px; margin-bottom: 20px; }
-        .social-icons { display: flex; justify-content: center; gap: 25px; margin-bottom: 20px; }
-        .social-icons a { font-size: 20px; }
-        .copyright { font-size: 13px; }
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .article-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                margin-top: 40px;
-            }
-            .article-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .footer-content {
-                flex-direction: column;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-
-    <header class="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">NAKAMA</a>
-            <nav class="nav-links">
-                <ul class="nav-menu">
-                    <li><a href="#" class="active">Beranda</a></li>
-                    <li><a href="#">Kelas</a></li>
-                    <li><a href="#">Artikel</a></li>
-                    <li><a href="#">Tentang</a></li>
-                </ul>
-            </nav>
-            <div class="profile-icon">
-                <a href="#"><img src= "https://i.pravatar.cc/150?img=32"alt="User Profile"></a>
-            </div>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">NAKAMA</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="daftar_kursus.html">Kelas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Artikel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tentang</a>
+            </li>
+          </ul>
+          <a
+            href="sign_up.html"
+            class="btn btn-custom-primary d-none d-lg-inline-block ms-lg-3"
+            >Daftar Gratis</a
+          >
         </div>
-    </header>
+      </div>
+    </nav>
 
     <main class="main-wrapper">
-        <div class="container main-grid">
-            <div class="content-column">
-                <article class="featured-article">
-                    <img src="https://storage.googleapis.com/maker-studio-images/images/1547847b-1175-4089-a29d-b4b02537ed40" alt="Abstract futuristic image representing technology">
-                    <div class="featured-actions">
-                        <button class="btn btn-primary">Baca Selengkapnya</button>
-                        <button class="btn btn-secondary">Simpan</button>
-                    </div>
-                </article>
-
-                <section class="latest-articles">
-                    <h2 class="section-title">Artikel Terbaru</h2>
-                    <div class="article-grid">
-                        <article class="article-card">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/e3067677-7443-4f9e-a0e1-4566c7739da4" alt="Meja kerja yang rapi untuk meningkatkan produktivitas">
-                            <div class="card-content">
-                                <h3 class="card-title">Strategi Efektif Meningkatkan Produktivitas Kerja</h3>
-                                <p class="card-meta">
-                                    <span class="author">Oleh: Budi Santoso • 12 Mei 2024</span>
-                                    <span class="read-time">9 menit baca</span>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="article-card">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/9485121c-a1a7-4b77-a87f-d5b78f45a766" alt="Rekan kerja sedang berkomunikasi di kantor">
-                            <div class="card-content">
-                                <h3 class="card-title">Menguasai Keterampilan Komunikasi di Tempat Kerja</h3>
-                                <p class="card-meta">
-                                    <span class="author">Oleh: Ani Wijaya • 8 Mei 2024</span>
-                                    <span class="read-time">7 menit baca</span>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="article-card">
-                           <img src="https://storage.googleapis.com/maker-studio-images/images/2fce19bd-d50c-4d87-bb78-0402e604724b" alt="Orang bermeditasi untuk keseimbangan hidup dan kerja">
-                            <div class="card-content">
-                                <h3 class="card-title">Tips Mengelola Stres dan Keseimbangan Kerja</h3>
-                                <p class="card-meta">
-                                    <span class="author">Oleh: Chandra Putra • 5 Mei 2024</span>
-                                    <span class="read-time">6 menit baca</span>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="article-card">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/42b87ff7-047b-4861-ac1c-14d93bd57b54" alt="Tangan sedang mengetik kode di laptop">
-                            <div class="card-content">
-                                <h3 class="card-title">Memulai Karir di Bidang Teknologi: Panduan Lengkap</h3>
-                                <p class="card-meta">
-                                    <span class="author">Oleh: Dewi Lestari • 2 Mei 2024</span>
-                                    <span class="read-time">11 menit baca</span>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="article-card">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/41830605-7243-4a11-a8d6-419b109e2cf4" alt="Orang berdiri di atas tumpukan buku, simbol pengembangan diri">
-                            <div class="card-content">
-                                <h3 class="card-title">Pentingnya Pengembangan Diri untuk Kesuksesan Karir</h3>
-                                <p class="card-meta">
-                                    <span class="author">Oleh: Eko Prasetyo • 29 April 2024</span>
-                                    <span class="read-time">4 menit baca</span>
-                                </p>
-                            </div>
-                        </article>
-                        <article class="article-card">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/d3161c1a-826a-4d71-ae62-a50d44084f70" alt="Orang-orang profesional sedang membangun jaringan">
-                            <div class="card-content">
-                                <h3 class="card-title">Membangun Jaringan Profesional yang Kuat</h3>
-                                <p class="card-meta">
-                                    <span class="author">Oleh: Fani Rahayu • 28 April 2024</span>
-                                    <span class="read-time">6 menit baca</span>
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-                
-                <nav class="pagination">
-                    <a href="#"><i class="fas fa-chevron-left"></i></a>
-                    <a href="#" class="active">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#"><i class="fas fa-chevron-right"></i></a>
-                </nav>
-
+      <div class="container main-grid">
+        <div class="content-column">
+          <article class="featured-article">
+            <img
+              src="https://storage.googleapis.com/maker-studio-images/images/1547847b-1175-4089-a29d-b4b02537ed40"
+              alt="Abstract futuristic image representing technology"
+            />
+            <div class="featured-actions">
+              <button class="btn btn-primary">Baca Selengkapnya</button>
+              <button class="btn btn-secondary">Simpan</button>
             </div>
+          </article>
 
-            <aside class="sidebar">
-                <div class="widget">
-                    <div class="search-box">
-                       <i class="fas fa-search"></i>
-                       <input type="text" placeholder="Cari artikel...">
-                    </div>
+          <section class="latest-articles">
+            <h2 class="section-title">Artikel Terbaru</h2>
+            <div class="article-grid">
+              <article class="article-card">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/e3067677-7443-4f9e-a0e1-4566c7739da4"
+                  alt="Meja kerja yang rapi untuk meningkatkan produktivitas"
+                />
+                <div class="card-content">
+                  <h3 class="card-title">
+                    Strategi Efektif Meningkatkan Produktivitas Kerja
+                  </h3>
+                  <p class="card-meta">
+                    <span class="author">Oleh: Budi Santoso • 12 Mei 2024</span>
+                    <span class="read-time">9 menit baca</span>
+                  </p>
                 </div>
-                
-                <div class="widget">
-                    <h3 class="widget-title">Kategori</h3>
-                    <div class="categories">
-                        <a href="#" class="category-tag">Pengembangan Diri</a>
-                        <a href="#" class="category-tag">Teknologi</a>
-                        <a href="#" class="category-tag">Keterampilan Kerja</a>
-                        <a href="#" class="category-tag">Manajemen Waktu</a>
-                        <a href="#" class="category-tag">Komunikasi</a>
-                        <a href="#" class="category-tag">Kesehatan Mental</a>
-                    </div>
+              </article>
+              <article class="article-card">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/9485121c-a1a7-4b77-a87f-d5b78f45a766"
+                  alt="Rekan kerja sedang berkomunikasi di kantor"
+                />
+                <div class="card-content">
+                  <h3 class="card-title">
+                    Menguasai Keterampilan Komunikasi di Tempat Kerja
+                  </h3>
+                  <p class="card-meta">
+                    <span class="author">Oleh: Ani Wijaya • 8 Mei 2024</span>
+                    <span class="read-time">7 menit baca</span>
+                  </p>
                 </div>
+              </article>
+              <article class="article-card">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/2fce19bd-d50c-4d87-bb78-0402e604724b"
+                  alt="Orang bermeditasi untuk keseimbangan hidup dan kerja"
+                />
+                <div class="card-content">
+                  <h3 class="card-title">
+                    Tips Mengelola Stres dan Keseimbangan Kerja
+                  </h3>
+                  <p class="card-meta">
+                    <span class="author">Oleh: Chandra Putra • 5 Mei 2024</span>
+                    <span class="read-time">6 menit baca</span>
+                  </p>
+                </div>
+              </article>
+              <article class="article-card">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/42b87ff7-047b-4861-ac1c-14d93bd57b54"
+                  alt="Tangan sedang mengetik kode di laptop"
+                />
+                <div class="card-content">
+                  <h3 class="card-title">
+                    Memulai Karir di Bidang Teknologi: Panduan Lengkap
+                  </h3>
+                  <p class="card-meta">
+                    <span class="author">Oleh: Dewi Lestari • 2 Mei 2024</span>
+                    <span class="read-time">11 menit baca</span>
+                  </p>
+                </div>
+              </article>
+              <article class="article-card">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/41830605-7243-4a11-a8d6-419b109e2cf4"
+                  alt="Orang berdiri di atas tumpukan buku, simbol pengembangan diri"
+                />
+                <div class="card-content">
+                  <h3 class="card-title">
+                    Pentingnya Pengembangan Diri untuk Kesuksesan Karir
+                  </h3>
+                  <p class="card-meta">
+                    <span class="author"
+                      >Oleh: Eko Prasetyo • 29 April 2024</span
+                    >
+                    <span class="read-time">4 menit baca</span>
+                  </p>
+                </div>
+              </article>
+              <article class="article-card">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/d3161c1a-826a-4d71-ae62-a50d44084f70"
+                  alt="Orang-orang profesional sedang membangun jaringan"
+                />
+                <div class="card-content">
+                  <h3 class="card-title">
+                    Membangun Jaringan Profesional yang Kuat
+                  </h3>
+                  <p class="card-meta">
+                    <span class="author"
+                      >Oleh: Fani Rahayu • 28 April 2024</span
+                    >
+                    <span class="read-time">6 menit baca</span>
+                  </p>
+                </div>
+              </article>
+            </div>
+          </section>
 
-                <div class="widget">
-                    <h3 class="widget-title">Artikel Populer</h3>
-                    <div class="popular-articles-list">
-                        <div class="popular-article">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/e3067677-7443-4f9e-a0e1-4566c7739da4" alt="Popular Article">
-                            <div class="popular-info">
-                                <h4 class="title">Peningkatan Produktivitas</h4>
-                                <p class="meta">Oleh: Budi Santoso • 12 Mei 2024</p>
-                            </div>
-                        </div>
-                         <div class="popular-article">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/9485121c-a1a7-4b77-a87f-d5b78f45a766" alt="Popular Article">
-                            <div class="popular-info">
-                                <h4 class="title">Menguasai Keterampilan</h4>
-                                <p class="meta">Oleh: Ani Wijaya • 8 Mei 2024</p>
-                            </div>
-                        </div>
-                         <div class="popular-article">
-                            <img src="https://storage.googleapis.com/maker-studio-images/images/2fce19bd-d50c-4d87-bb78-0402e604724b" alt="Popular Article">
-                            <div class="popular-info">
-                                <h4 class="title">Tips Mengelola Stres dan</h4>
-                                <p class="meta">Oleh: Chandra Putra • 5 Mei 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
+          <nav class="pagination">
+            <a href="#"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
+          </nav>
         </div>
+
+        <aside class="sidebar">
+          <div class="widget">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Cari artikel..." />
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3 class="widget-title">Kategori</h3>
+            <div class="categories">
+              <a href="#" class="category-tag">Pengembangan Diri</a>
+              <a href="#" class="category-tag">Teknologi</a>
+              <a href="#" class="category-tag">Keterampilan Kerja</a>
+              <a href="#" class="category-tag">Manajemen Waktu</a>
+              <a href="#" class="category-tag">Komunikasi</a>
+              <a href="#" class="category-tag">Kesehatan Mental</a>
+            </div>
+          </div>
+
+          <div class="widget">
+            <h3 class="widget-title">Artikel Populer</h3>
+            <div class="popular-articles-list">
+              <div class="d-flex align-items-start mb-3">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/e3067677-7443-4f9e-a0e1-4566c7739da4"
+                  alt="Popular Article"
+                />
+                <div class="popular-info">
+                  <h4 class="title">Peningkatan Produktivitas</h4>
+                  <p class="meta">Oleh: Budi Santoso • 12 Mei 2024</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-3">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/9485121c-a1a7-4b77-a87f-d5b78f45a766"
+                  alt="Popular Article"
+                />
+                <div class="popular-info">
+                  <h4 class="title">Menguasai Keterampilan</h4>
+                  <p class="meta">Oleh: Ani Wijaya • 8 Mei 2024</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-start mb-3">
+                <img
+                  src="https://storage.googleapis.com/maker-studio-images/images/2fce19bd-d50c-4d87-bb78-0402e604724b"
+                  alt="Popular Article"
+                />
+                <div class="popular-info">
+                  <h4 class="title">Tips Mengelola Stres dan</h4>
+                  <p class="meta">Oleh: Chandra Putra • 5 Mei 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
     </main>
-    
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="#">About Us</a>
-                <a href="#">Contact</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-            <div class="social-icons">
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-facebook"></i></a>
-            </div><p class="copyright">&copy; 2025 NAKAMA. All rights reserved.</p>
-        </div>
-    </footer>
-    <script>
 
-</body>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+        <div class="social-icons">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p class="copyright">&copy; 2025 NAKAMA. All rights reserved.</p>
+      </div>
+    </footer>
+    <script></script>
+  </body>
 </html>

@@ -8,8 +8,6 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
     />
     <!-- Bootstrap Icons -->
     <link
@@ -23,39 +21,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
 
     <style>
-      :root {
-        --page-bg: #f9f7f4;
-        --card-bg: #ffffff;
-        --text-dark: #212529;
-        --text-secondary: #6c757d;
-        --border-color: #eaeaea;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--page-bg);
-        color: var(--text-dark);
-      }
-
-      .navbar {
-        background-color: var(--page-bg);
-      }
-
-      .navbar-brand {
-        font-weight: 700;
-        letter-spacing: 1px;
-      }
-
-      .nav-link {
-        font-weight: 500;
-      }
-
-      .nav-link.active {
-        font-weight: 600;
-      }
-
       /* Filter Sidebar */
       .filter-sidebar {
         background-color: var(--card-bg);
@@ -66,7 +38,7 @@
         font-weight: 600;
       }
       .filter-sidebar .form-select {
-        background-color: var(--page-bg);
+        background-color: var(--color-background);
       }
 
       /* Bootcamp Content */
@@ -74,14 +46,14 @@
         font-weight: 700;
       }
       .bootcamp-header p {
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
       }
 
       .bootcamp-card {
         background-color: var(--card-bg);
         border-radius: 1rem;
         overflow: hidden;
-        border: 1px solid var(--border-color);
+        border: 1px solid var(--color-border);
         margin-bottom: 2rem;
         display: flex;
         align-items: center;
@@ -92,7 +64,7 @@
       .bootcamp-card-body .tag {
         font-size: 0.9rem;
         font-weight: 500;
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
       }
       .bootcamp-card-body h3 {
         font-weight: 600;
@@ -100,13 +72,13 @@
       }
       .bootcamp-card-body .details {
         font-size: 0.9rem;
-        color: var(--text-secondary);
+        color: var(--color-text-secondary);
       }
       .bootcamp-card-body .btn-detail {
-        background-color: var(--page-bg);
-        border: 1px solid var(--border-color);
+        background-color: var(--color-background);
+        border: 1px solid var(--color-border);
         font-weight: 600;
-        color: var(--text-dark);
+        color: var(--color-text-heading);
       }
       .bootcamp-card-body .btn-detail:hover {
         background-color: #e9e5e0;
@@ -118,28 +90,6 @@
         object-fit: cover;
       }
 
-      /* Footer */
-      .footer {
-        padding: 3rem 0;
-        text-align: center;
-      }
-      .footer a {
-        color: var(--text-secondary);
-        text-decoration: none;
-        margin: 0 1rem;
-        font-weight: 500;
-      }
-      .footer a:hover {
-        color: var(--text-dark);
-      }
-      .footer .social-icons i {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-      }
-      .footer .social-icons i:hover {
-        color: var(--text-dark);
-      }
-
       @media (max-width: 991.98px) {
         .bootcamp-card {
           flex-direction: column;
@@ -147,16 +97,16 @@
         .bootcamp-card-img {
           width: 100%;
           height: 200px;
-          border-bottom: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--color-border);
         }
       }
     </style>
   </head>
   <body>
-    <!-- Navigasi -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container py-2">
-        <a class="navbar-brand" href="index.html">NAKAMA</a>
+    <!-- Navbar untuk Logged In User -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="landing_page_login.html">NAKAMA</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -169,34 +119,59 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="d-flex ms-auto">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Beranda</a>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="daftar_kursus.html">Kelas</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="bootcamp.html"
+                >Bootcamp</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Artikel</a>
+            </li>
+          </ul>
+          <!-- Profile Dropdown -->
+          <div class="dropdown ms-lg-3">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="asset/LOGO.png"
+                alt="User Avatar"
+                class="rounded-circle"
+                style="width: 40px; height: 40px; object-fit: cover"
+              />
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><h6 class="dropdown-header">Ukyo</h6></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="landing_page_login.html">
+                  <i class="bi bi-speedometer2"></i> Dashboard
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="daftar_kursus.html">Kelas</a>
+              <li>
+                <a class="dropdown-item" href="#">
+                  <i class="bi bi-person-circle"></i> Profil Saya
+                </a>
               </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="bootcamp_login.html"
-                  >Bootcamp</a
-                >
+              <li>
+                <a class="dropdown-item" href="#">
+                  <i class="bi bi-gear"></i> Pengaturan
+                </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="blog.html">Artikel</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="landing_page_login.html">
-                  <img
-                    src="https://placehold.co/40x40/EFEFEF/333333?text=A"
-                    class="rounded-circle"
-                    alt="Avatar Pengguna"
-                  />
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item text-danger" href="index.html">
+                  <i class="bi bi-box-arrow-right"></i> Keluar
                 </a>
               </li>
             </ul>
@@ -268,7 +243,7 @@
                 >
               </div>
               <img
-                src="https://placehold.co/280x220/1F6456/FFFFFF?text=Minimal%0ADatascience%0ABootcamp"
+                src="assets/images/bootcamp/bootcamp-data-science.jpg"
                 class="bootcamp-card-img"
                 alt="Bootcamp Data Science"
               />
@@ -288,7 +263,7 @@
                 >
               </div>
               <img
-                src="https://placehold.co/280x220/DCE3E8/333333?text=BOOTTCAMP"
+                src="assets/images/bootcamp/bootcamp-web-dev.jpg"
                 class="bootcamp-card-img"
                 alt="Bootcamp Web Development"
               />
@@ -308,7 +283,7 @@
                 >
               </div>
               <img
-                src="https://placehold.co/280x220/EDEAE6/333333?text=UI/UX%0ADESIGN"
+                src="assets/images/bootcamp/bootcamp-ui-ux.jpg"
                 class="bootcamp-card-img"
                 alt="Bootcamp UI/UX Design"
               />
@@ -328,10 +303,14 @@
             <a href="kontak.html" class="nav-link px-5">Contact</a>
           </li>
           <li class="nav-item">
-            <a href="kebijakan_privasi.html" class="nav-link px-5">Privacy Policy</a>
+            <a href="kebijakan_privasi.html" class="nav-link px-5"
+              >Privacy Policy</a
+            >
           </li>
           <li class="nav-item">
-            <a href="syarat_ketentuan.html" class="nav-link px-5">Terms of Service</a>
+            <a href="syarat_ketentuan.html" class="nav-link px-5"
+              >Terms of Service</a
+            >
           </li>
         </ul>
         <div class="social-icons mb-3">
@@ -344,10 +323,6 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

@@ -99,8 +99,8 @@
     </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <!-- Navbar konsisten dengan index.html -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">NAKAMA</a>
         <button
@@ -126,12 +126,11 @@
               <a class="nav-link" href="blog.html">Artikel</a>
             </li>
           </ul>
-          <div class="d-flex ms-lg-3">
-            <a href="login.html" class="btn btn-outline-secondary me-2"
-              >Masuk</a
-            >
-            <a href="sign_up.html" class="btn btn-custom-primary">Daftar</a>
-          </div>
+          <a
+            href="sign_up.html"
+            class="btn btn-custom-primary d-none d-lg-inline-block ms-lg-3"
+            >Daftar Gratis</a
+          >
         </div>
       </div>
     </nav>
@@ -521,6 +520,36 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5 mt-5">
+      <div class="container text-center">
+        <ul class="nav justify-content-center mb-3">
+          <li class="nav-item">
+            <a href="aboutUs.html" class="nav-link px-5">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="kontak.html" class="nav-link px-5">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="kebijakan_privasi.html" class="nav-link px-5"
+              >Privacy Policy</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="syarat_ketentuan.html" class="nav-link px-5"
+              >Terms of Service</a
+            >
+          </li>
+        </ul>
+        <div class="social-icons mb-3">
+          <a href="#" class="px-2"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="px-2"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="px-2"><i class="bi bi-facebook"></i></a>
+        </div>
+        <span class="copyright-text">© 2025 NAKAMA. All rights reserved.</span>
+      </div>
+    </footer>
 
     <!-- Bootstrap JS (Bundle) -->
     <script

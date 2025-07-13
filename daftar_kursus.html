@@ -64,7 +64,7 @@
         overflow: hidden;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer; /* Menambahkan kursor pointer */
+        cursor: pointer;
       }
 
       .course-card:hover {
@@ -103,15 +103,7 @@
         font-weight: 700;
       }
 
-      .footer {
-        background-color: #fff;
-        padding: 2rem 0;
-        margin-top: 3rem;
-        border-top: 1px solid #e9ecef;
-        text-align: center;
-      }
-
-      /* Gaya untuk Modal Popup */
+      /* Modal styles */
       .modal-content {
         border-radius: 1rem;
         border: none;
@@ -246,8 +238,8 @@
     </style>
   </head>
   <body>
-    <!-- Navigasi -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <!-- Navbar yang konsisten dengan index.html -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">NAKAMA</a>
         <button
@@ -262,38 +254,27 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <div class="d-flex ms-auto">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="daftar_kursus.html"
-                  >Kursus</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="roadmap.html">Jalur Belajar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="blog.html">Artikel</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link ms-lg-3" href="#">
-                  <img
-                    src="https://placehold.co/40x40/EFEFEF/333333?text=A"
-                    class="rounded-circle"
-                    alt="Avatar Pengguna"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="daftar_kursus.html"
+                >Kelas</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="roadmap.html">Jalur Belajar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Artikel</a>
+            </li>
+          </ul>
+          <a
+            href="sign_up.html"
+            class="btn btn-custom-primary d-none d-lg-inline-block ms-lg-3"
+            >Daftar Gratis</a
+          >
         </div>
       </div>
     </nav>
@@ -308,11 +289,11 @@
             <div class="mb-4">
               <h6>Kategori</h6>
               <nav class="nav flex-column">
-                <a class="nav-link px-0" href="#">Pengembangan Web</a
-                ><a class="nav-link px-0" href="#">Desain UI/UX</a
-                ><a class="nav-link px-0" href="#">Ilmu Data</a
-                ><a class="nav-link px-0" href="#">Pemasaran Digital</a
-                ><a class="nav-link px-0" href="#">Bisnis</a>
+                <a class="nav-link px-0" href="#">Pengembangan Web</a>
+                <a class="nav-link px-0" href="#">Desain UI/UX</a>
+                <a class="nav-link px-0" href="#">Ilmu Data</a>
+                <a class="nav-link px-0" href="#">Pemasaran Digital</a>
+                <a class="nav-link px-0" href="#">Bisnis</a>
               </nav>
             </div>
             <div class="mb-4">
@@ -324,7 +305,8 @@
                   name="difficulty"
                   id="pemula"
                   checked
-                /><label class="form-check-label" for="pemula">Pemula</label>
+                />
+                <label class="form-check-label" for="pemula">Pemula</label>
               </div>
               <div class="form-check">
                 <input
@@ -332,9 +314,8 @@
                   type="radio"
                   name="difficulty"
                   id="menengah"
-                /><label class="form-check-label" for="menengah"
-                  >Menengah</label
-                >
+                />
+                <label class="form-check-label" for="menengah">Menengah</label>
               </div>
               <div class="form-check">
                 <input
@@ -342,7 +323,8 @@
                   type="radio"
                   name="difficulty"
                   id="mahir"
-                /><label class="form-check-label" for="mahir">Mahir</label>
+                />
+                <label class="form-check-label" for="mahir">Mahir</label>
               </div>
             </div>
             <div>
@@ -354,7 +336,8 @@
                   name="price"
                   id="semua"
                   checked
-                /><label class="form-check-label" for="semua">Semua</label>
+                />
+                <label class="form-check-label" for="semua">Semua</label>
               </div>
               <div class="form-check">
                 <input
@@ -362,7 +345,8 @@
                   type="radio"
                   name="price"
                   id="gratis"
-                /><label class="form-check-label" for="gratis">Gratis</label>
+                />
+                <label class="form-check-label" for="gratis">Gratis</label>
               </div>
               <div class="form-check">
                 <input
@@ -370,9 +354,8 @@
                   type="radio"
                   name="price"
                   id="berbayar"
-                /><label class="form-check-label" for="berbayar"
-                  >Berbayar</label
-                >
+                />
+                <label class="form-check-label" for="berbayar">Berbayar</label>
               </div>
             </div>
           </aside>
@@ -393,9 +376,9 @@
               </div>
             </div>
 
-            <!-- Grid Kursus -->
+            <!-- Grid Kursus dengan gambar lokal -->
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-              <!-- Kartu Kursus: Ditambahkan atribut data-bs-toggle dan data-bs-target -->
+              <!-- Python Programming -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -403,9 +386,9 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/2D8A74/FFFFFF?text=Development"
+                    src="assets/images/courses/python-programming.jpg"
                     class="card-img-top"
-                    alt="Gambar Kursus Web"
+                    alt="Gambar Kursus Python"
                   />
                   <div class="card-body">
                     <h5 class="card-title">Pengembangan Web Tingkat Lanjut</h5>
@@ -413,6 +396,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- UI/UX Design -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -420,7 +405,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/E6DCD2/333333?text=Design"
+                    src="assets/images/courses/ui-ux-design.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus UI/UX"
                   />
@@ -430,6 +415,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Data Science -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -437,7 +424,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/3A588F/FFFFFF?text=DATA"
+                    src="assets/images/courses/data-science.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Data"
                   />
@@ -447,6 +434,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Digital Marketing -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -454,7 +443,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/52B2A6/FFFFFF?text=Marketing"
+                    src="assets/images/courses/digital-marketing.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Digital Marketing"
                   />
@@ -464,6 +453,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Business -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -471,7 +462,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/BDC3C7/333333?text=Bisnis"
+                    src="assets/images/courses/web-development.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Bisnis"
                   />
@@ -481,6 +472,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Mobile Development -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -488,7 +481,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/3498DB/FFFFFF?text=Mobile"
+                    src="assets/images/courses/python-programming.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Mobile"
                   />
@@ -498,6 +491,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Graphic Design -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -505,7 +500,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/ECF0F1/333333?text=Grafis"
+                    src="assets/images/courses/ui-ux-design.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Grafis"
                   />
@@ -515,6 +510,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Data Analysis -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -522,7 +519,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/A2D4C1/333333?text=Analisis"
+                    src="assets/images/courses/data-science.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Analisis"
                   />
@@ -532,6 +529,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Content Marketing -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -539,7 +538,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/96C4B9/FFFFFF?text=Konten"
+                    src="assets/images/courses/digital-marketing.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Konten"
                   />
@@ -549,6 +548,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Project Management -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -556,7 +557,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/16A085/FFFFFF?text=Project"
+                    src="assets/images/courses/web-development.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Project"
                   />
@@ -566,6 +567,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Game Development -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -573,7 +576,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/27AE60/FFFFFF?text=Game"
+                    src="assets/images/courses/python-programming.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Game"
                   />
@@ -583,6 +586,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Product Design -->
               <div class="col">
                 <div
                   class="card h-100 course-card"
@@ -590,7 +595,7 @@
                   data-bs-target="#courseDetailModal"
                 >
                   <img
-                    src="https://placehold.co/600x400/D5E8D4/333333?text=Produk"
+                    src="assets/images/courses/ui-ux-design.jpg"
                     class="card-img-top"
                     alt="Gambar Kursus Produk"
                   />
@@ -616,10 +621,14 @@
             <a href="kontak.html" class="nav-link px-5">Contact</a>
           </li>
           <li class="nav-item">
-            <a href="kebijakan_privasi.html" class="nav-link px-5">Privacy Policy</a>
+            <a href="kebijakan_privasi.html" class="nav-link px-5"
+              >Privacy Policy</a
+            >
           </li>
           <li class="nav-item">
-            <a href="syarat_ketentuan.html" class="nav-link px-5">Terms of Service</a>
+            <a href="syarat_ketentuan.html" class="nav-link px-5"
+              >Terms of Service</a
+            >
           </li>
         </ul>
         <div class="social-icons mb-3">
@@ -756,13 +765,13 @@
                   style="background-color: #f8f9fa; border-radius: 1rem"
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop"
+                    src="assets/images/courses/digital-marketing.jpg"
                     class="img-fluid rounded-4 mb-4"
                     alt="Course decorative image"
                   />
                   <div class="instructor-card mb-4">
                     <img
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop"
+                      src="assets/images/instructors/instructor-4.jpg"
                       alt="Foto Instruktur"
                     />
                     <p class="instructor-name">Dr. Amelia Hart</p>
@@ -770,16 +779,16 @@
                   </div>
                   <div class="course-meta">
                     <div class="meta-item">
-                      <span class="meta-label">Duration</span
-                      ><span class="meta-value">12 hours</span>
+                      <span class="meta-label">Duration</span>
+                      <span class="meta-value">12 hours</span>
                     </div>
                     <div class="meta-item">
-                      <span class="meta-label">Resources</span
-                      ><span class="meta-value">Downloadable</span>
+                      <span class="meta-label">Resources</span>
+                      <span class="meta-value">Downloadable</span>
                     </div>
                     <div class="meta-item">
-                      <span class="meta-label">Certificate</span
-                      ><span class="meta-value">Completion</span>
+                      <span class="meta-label">Certificate</span>
+                      <span class="meta-value">Completion</span>
                     </div>
                   </div>
                   <hr />
@@ -788,11 +797,11 @@
                       <div class="col-auto">
                         <span class="rating-value">4.8</span>
                         <div class="rating-stars">
-                          <i class="bi bi-star-fill"></i
-                          ><i class="bi bi-star-fill"></i
-                          ><i class="bi bi-star-fill"></i
-                          ><i class="bi bi-star-fill"></i
-                          ><i class="bi bi-star-half"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-half"></i>
                         </div>
                         <p class="rating-reviews mb-0">250 reviews</p>
                       </div>
@@ -876,7 +885,6 @@
                   >
                     <span class="course-price">$99</span>
                   </div>
-                  <!-- <button class="btn btn-enroll mb-2">Enroll in This Class</button> -->
                   <a href="checkout.html" class="btn btn-enroll mb-2"
                     >Enroll in This Class</a
                   >
@@ -895,11 +903,5 @@
       xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // Catatan: Dalam aplikasi nyata, Anda akan menggunakan JavaScript untuk
-      // mengambil data kursus yang sesuai saat kartu diklik dan
-      // mengisi konten modal secara dinamis.
-      // Untuk demo ini, konten modal bersifat statis.
-    </script>
   </body>
 </html>

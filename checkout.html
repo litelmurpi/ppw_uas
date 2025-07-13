@@ -169,6 +169,25 @@
         font-size: 0.85rem;
         color: var(--text-secondary);
       }
+      @media (max-width: 768px) {
+        .touch-input {
+          height: 48px; /* Lebih besar untuk kemudahan sentuh */
+          font-size: 16px; /* Mencegah zoom otomatis pada iOS */
+        }
+
+        .payment-method-option {
+          padding: 0.75rem;
+        }
+
+        .order-summary-card {
+          position: sticky;
+          bottom: 0;
+          z-index: 100;
+          margin-top: 2rem;
+          padding: 1rem;
+          border-radius: 1rem 1rem 0 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -473,6 +492,7 @@
 
     <!-- Bootstrap JS -->
     <script src="script/lazy-loading.js"></script>
+    <script src="script/script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -572,6 +592,37 @@
           });
         });
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Deteksi touch device
+        const isTouch =
+          "ontouchstart" in window ||
+          navigator.maxTouchPoints > 0 ||
+          navigator.msMaxTouchPoints > 0;
+
+        if (isTouch) {
+          // Menambahkan class untuk memperbesar area sentuhan pada form element
+          const formInputs = document.querySelectorAll(
+            "input, select, textarea"
+          );
+          formInputs.forEach((input) => {
+            input.classList.add("touch-input");
+          });
+
+          // Memperbaiki tampilan saat keyboard virtual muncul
+          const form = document.getElementById("checkoutForm");
+          if (form) {
+            const inputs = form.querySelectorAll("input, select, textarea");
+            inputs.forEach((input) => {
+              input.addEventListener("focus", function () {
+                setTimeout(() => {
+                  window.scrollTo(0, input.getBoundingClientRect().top - 20);
+                }, 300);
+              });
+            });
+          }
+        }
+      });
 
       setupLogoSelection("bank-logos");
       setupLogoSelection("ewallet-logos");

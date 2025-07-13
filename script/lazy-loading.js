@@ -1,6 +1,22 @@
 // Tambahkan script ini di bagian bawah setiap halaman
 
 document.addEventListener("DOMContentLoaded", function () {
+  const connection =
+    navigator.connection ||
+    navigator.mozConnection ||
+    navigator.webkitConnection;
+  const isSlowConnection =
+    connection &&
+    (connection.effectiveType === "2g" ||
+      connection.effectiveType === "slow-2g");
+
+  // Ganti gambar dengan resolusi lebih rendah jika koneksi lambat
+  if (isSlowConnection) {
+    document.querySelectorAll("img[data-src-low]").forEach((img) => {
+      img.dataset.src = img.dataset.srcLow;
+    });
+  }
+
   // Lazy loading untuk gambar
   const images = document.querySelectorAll("img[data-src]");
 

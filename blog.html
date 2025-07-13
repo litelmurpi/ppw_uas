@@ -377,20 +377,25 @@
 
       @media (max-width: 768px) {
         .main-grid {
-          grid-template-columns: 1fr;
+          display: block;
         }
-        .sidebar {
-          margin-top: 40px;
-        }
+
         .article-grid {
+          display: grid;
           grid-template-columns: 1fr;
+          gap: 20px;
         }
-        .nav-container {
-          flex-direction: column;
-          gap: 15px;
+
+        .featured-article img {
+          height: 200px;
         }
-        .footer-content {
-          flex-direction: column;
+
+        .sidebar {
+          margin-top: 30px;
+        }
+
+        .sidebar .widget {
+          margin-bottom: 20px;
         }
       }
     </style>
@@ -419,7 +424,7 @@
               <a class="nav-link" href="blog.html">Artikel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tentang</a>
+              <a class="nav-link" href="aboutUs.html">Tentang</a>
             </li>
           </ul>
           <a
@@ -648,6 +653,8 @@
         <span class="copyright-text">© 2025 NAKAMA. All rights reserved.</span>
       </div>
     </footer>
+    <script src="script/script.js"></script>
     <script src="script/lazy-loading.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

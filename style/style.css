@@ -119,3 +119,56 @@ h6 {
   font-size: 0.9rem;
   color: var(--color-text-secondary);
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Perbaikan touch area di mobile */
+button,
+.nav-link,
+.btn {
+  min-height: 44px; /* Standar touch target size */
+  min-width: 44px;
+}
+
+/* Font size responsive */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Perbaikan responsivitas footer */
+@media (max-width: 768px) {
+  .footer .nav-item .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Perbaikan untuk modal di mobile */
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  .modal-content {
+    border-radius: 0.5rem;
+  }
+  .modal-body {
+    padding: 1.5rem;
+  }
+}

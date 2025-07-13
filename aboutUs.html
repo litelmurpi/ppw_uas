@@ -147,7 +147,6 @@
     </style>
   </head>
   <body>
-    <!-- Navigasi -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container">
         <a class="navbar-brand" href="index.html">NAKAMA</a>
@@ -173,7 +172,14 @@
             <li class="nav-item">
               <a class="nav-link" href="blog.html">Artikel</a>
             </li>
+            <!-- Tombol Daftar Gratis untuk mobile -->
+            <li class="nav-item d-lg-none mt-2">
+              <a href="sign_up.html" class="btn btn-custom-primary w-100"
+                >Daftar Gratis</a
+              >
+            </li>
           </ul>
+          <!-- Tombol untuk desktop (tetap ada) -->
           <a
             href="sign_up.html"
             class="btn btn-custom-primary d-none d-lg-inline-block ms-lg-3"
@@ -371,6 +377,7 @@
       </div>
     </footer>
     <script src="script/lazy-loading.js"></script>
+    <script src="script/script.js"></script>
     <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

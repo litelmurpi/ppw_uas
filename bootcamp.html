@@ -157,7 +157,14 @@
             <li class="nav-item">
               <a class="nav-link" href="blog.html">Artikel</a>
             </li>
+            <!-- Tombol Daftar Gratis untuk mobile -->
+            <li class="nav-item d-lg-none mt-2">
+              <a href="sign_up.html" class="btn btn-custom-primary w-100"
+                >Daftar Gratis</a
+              >
+            </li>
           </ul>
+          <!-- Tombol untuk desktop -->
           <a
             href="sign_up.html"
             class="btn btn-custom-primary d-none d-lg-inline-block ms-lg-3"
@@ -276,20 +283,20 @@
 
     <footer class="footer py-5 mt-5">
       <div class="container text-center">
-        <ul class="nav justify-content-center mb-3">
+        <ul class="nav justify-content-center flex-wrap mb-3">
           <li class="nav-item">
-            <a href="aboutUs.html" class="nav-link px-5">About Us</a>
+            <a href="aboutUs.html" class="nav-link px-3 px-md-5">About Us</a>
           </li>
           <li class="nav-item">
-            <a href="kontak.html" class="nav-link px-5">Contact</a>
+            <a href="kontak.html" class="nav-link px-3 px-md-5">Contact</a>
           </li>
           <li class="nav-item">
-            <a href="kebijakan_privasi.html" class="nav-link px-5"
+            <a href="kebijakan_privasi.html" class="nav-link px-3 px-md-5"
               >Privacy Policy</a
             >
           </li>
           <li class="nav-item">
-            <a href="syarat_ketentuan.html" class="nav-link px-5"
+            <a href="syarat_ketentuan.html" class="nav-link px-3 px-md-5"
               >Terms of Service</a
             >
           </li>
@@ -305,5 +312,39 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/lazy-loading.js"></script>
+
+    <!-- Script untuk filter sidebar mobile -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterSidebar = document.querySelector(".filter-sidebar");
+
+        if (filterSidebar && window.innerWidth < 992) {
+          // Buat toggle button
+          const toggleBtn = document.createElement("button");
+          toggleBtn.className = "btn btn-sm btn-outline-secondary w-100 mb-3";
+          toggleBtn.innerHTML = 'Tampilkan Filter <i class="bi bi-funnel"></i>';
+
+          // Sembunyikan filter secara default di mobile
+          filterSidebar.style.display = "none";
+          filterSidebar.classList.add("filter-mobile");
+
+          // Tambahkan button sebelum filter
+          filterSidebar.parentNode.insertBefore(toggleBtn, filterSidebar);
+
+          // Event listener
+          toggleBtn.addEventListener("click", function () {
+            if (filterSidebar.style.display === "none") {
+              filterSidebar.style.display = "block";
+              this.innerHTML =
+                'Sembunyikan Filter <i class="bi bi-funnel-fill"></i>';
+            } else {
+              filterSidebar.style.display = "none";
+              this.innerHTML = 'Tampilkan Filter <i class="bi bi-funnel"></i>';
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>

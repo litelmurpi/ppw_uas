@@ -1,0 +1,165 @@
+/* Clean styles for logged-in pages */
+:root {
+  --sidebar-width: 280px;
+  --nav-height: 72px;
+  --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  --card-border-radius: 12px;
+  --section-spacing: 2.5rem;
+  --element-spacing: 1.5rem;
+}
+
+/* Navbar improvements */
+.navbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  padding: 0.5rem 0;
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar .nav-link {
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+}
+
+.navbar .nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* Profile dropdown styling */
+.profile-dropdown img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.profile-dropdown .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.profile-dropdown .dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  padding: 0.6rem 1.25rem;
+  font-weight: 500;
+  color: var(--color-text-body);
+}
+
+.dropdown-item:active,
+.dropdown-item:hover {
+  background-color: rgba(243, 156, 18, 0.08);
+  color: var(--color-primary);
+}
+
+/* Notification dropdown */
+.notification-dropdown .dropdown-menu {
+  width: 320px;
+}
+
+.notification-dropdown-menu .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Card clean styling */
+.card-clean {
+  border: none;
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: white;
+}
+
+.card-clean:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card-clean .card-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.25rem 1.5rem;
+}
+
+.card-clean .card-body {
+  padding: 1.5rem;
+}
+
+.card-clean .card-title {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Section styling */
+.section-clean {
+  margin-bottom: var(--section-spacing);
+}
+
+.section-title-clean {
+  font-weight: 700;
+  margin-bottom: var(--element-spacing);
+  color: var(--color-text-heading);
+}
+
+/* Dashboard grid layouts */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Progress cards */
+.progress-card {
+  position: relative;
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  height: 100%;
+}
+
+.progress-indicator {
+  height: 4px;
+  background: var(--color-primary);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Clean badges */
+.badge-clean {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .card-clean {
+    margin-bottom: 1rem;
+  }
+
+  .section-clean {
+    margin-bottom: 2rem;
+  }
+}

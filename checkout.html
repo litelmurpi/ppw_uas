@@ -3,28 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selesaikan Pembayaran - NAKAMA</title>
-    <!-- Bootstrap CSS -->
+    <meta name="description" content="[Deskripsi halaman]" />
+    <title>[Judul] - NAKAMA</title>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+    <!-- CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style/style.css" />
@@ -194,19 +193,30 @@
     <!-- Navigasi -->
     <nav class="navbar navbar-expand-lg">
       <div class="container py-2">
-        <a class="navbar-brand" href="index.html">NAKAMA</a>
-        <div class="d-flex align-items-center ms-auto">
+        <a class="navbar-brand" href="landing_page_login.html">NAKAMA</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"><span></span></span>
+        </button>
+        <!-- Desktop view -->
+        <div class="d-none d-lg-flex align-items-center ms-auto">
           <a class="nav-link fw-bold me-3" href="landing_page_login.html"
-            >Dasbor</a
+            >Dashboard</a
           >
           <a class="nav-link" href="#">
             <img
-              src="https://placehold.co/40x40/EFEFEF/333333?text=A"
+              src="https://i.pravatar.cc/150?img=32"
               class="rounded-circle"
               alt="Avatar Pengguna"
+              width="40"
+              height="40"
             />
           </a>
         </div>
+        <!-- Mobile navigation handled by sidebar -->
       </div>
     </nav>
 
@@ -493,139 +503,11 @@
     <!-- Bootstrap JS -->
     <script src="script/lazy-loading.js"></script>
     <script src="script/script.js"></script>
+    <script src="script/checkout.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // JavaScript untuk menampilkan/menyembunyikan form detail pembayaran
-      const paymentMethodRadios = document.querySelectorAll(
-        'input[name="paymentMethod"]'
-      );
-      const creditCardFields = document.getElementById("creditCardFields");
-      const virtualAccountFields = document.getElementById(
-        "virtualAccountFields"
-      );
-      const eWalletFields = document.getElementById("eWalletFields");
-
-      const ccInputs = creditCardFields.querySelectorAll("input");
-
-      paymentMethodRadios.forEach((radio) => {
-        radio.addEventListener("change", function () {
-          // Sembunyikan semua detail pembayaran
-          creditCardFields.style.display = "none";
-          virtualAccountFields.style.display = "none";
-          eWalletFields.style.display = "none";
-
-          // Hapus atribut 'required' dari semua input kartu kredit
-          ccInputs.forEach((input) => (input.required = false));
-
-          // Tampilkan yang sesuai dengan pilihan
-          if (this.value === "creditCard") {
-            creditCardFields.style.display = "block";
-            // Tambahkan kembali atribut 'required'
-            ccInputs.forEach((input) => (input.required = true));
-          } else if (this.value === "virtualAccount") {
-            virtualAccountFields.style.display = "block";
-          } else if (this.value === "eWallet") {
-            eWalletFields.style.display = "block";
-          }
-        });
-      });
-
-      // Bootstrap validation script
-      (() => {
-        "use strict";
-        const form = document.getElementById("checkoutForm");
-        form.addEventListener(
-          "submit",
-          (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-
-            if (!form.checkValidity()) {
-              form.classList.add("was-validated");
-            } else {
-              // Jika form valid, tampilkan SweetAlert
-              const totalAmount =
-                document.getElementById("totalAmount").textContent;
-              Swal.fire({
-                title: "Konfirmasi Pesanan Anda",
-                html: `Anda akan melakukan pembayaran sebesar <strong>${totalAmount}</strong>.<br>Pastikan semua data sudah benar.`,
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#F5A623",
-                cancelButtonColor: "#6c757d",
-                confirmButtonText: "Ya, Bayar Sekarang!",
-                cancelButtonText: "Batal",
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  Swal.fire({
-                    title: "Pembayaran Berhasil!",
-                    text: "Terima kasih, pesanan Anda sedang diproses.",
-                    icon: "success",
-                    confirmButtonColor: "#F5A623",
-                  }).then(() => {
-                    // Opsi: reset form atau redirect ke halaman lain
-                    form.reset();
-                    window.location.href = "landing_page_login.html";
-                  });
-                }
-              });
-            }
-          },
-          false
-        );
-      })();
-
-      // Logika untuk memilih logo bank/e-wallet
-      function setupLogoSelection(containerId) {
-        const container = document.getElementById(containerId);
-        const logos = container.querySelectorAll(".payment-logo");
-        logos.forEach((logo) => {
-          logo.addEventListener("click", () => {
-            // Hapus kelas 'selected' dari semua logo di kontainer ini
-            logos.forEach((l) => l.classList.remove("selected"));
-            // Tambahkan kelas 'selected' ke logo yang diklik
-            logo.classList.add("selected");
-          });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        // Deteksi touch device
-        const isTouch =
-          "ontouchstart" in window ||
-          navigator.maxTouchPoints > 0 ||
-          navigator.msMaxTouchPoints > 0;
-
-        if (isTouch) {
-          // Menambahkan class untuk memperbesar area sentuhan pada form element
-          const formInputs = document.querySelectorAll(
-            "input, select, textarea"
-          );
-          formInputs.forEach((input) => {
-            input.classList.add("touch-input");
-          });
-
-          // Memperbaiki tampilan saat keyboard virtual muncul
-          const form = document.getElementById("checkoutForm");
-          if (form) {
-            const inputs = form.querySelectorAll("input, select, textarea");
-            inputs.forEach((input) => {
-              input.addEventListener("focus", function () {
-                setTimeout(() => {
-                  window.scrollTo(0, input.getBoundingClientRect().top - 20);
-                }, 300);
-              });
-            });
-          }
-        }
-      });
-
-      setupLogoSelection("bank-logos");
-      setupLogoSelection("ewallet-logos");
-    </script>
   </body>
 </html>

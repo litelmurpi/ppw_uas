@@ -3,31 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NAKAMA - Artikel</title>
+    <meta name="description" content="[Deskripsi halaman]" />
+    <title>[Judul] - NAKAMA</title>
+
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+    <!-- CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap"
       rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="style/style.css" />
 
@@ -407,13 +404,9 @@
         <button
           class="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"><span></span></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
@@ -421,10 +414,15 @@
               <a class="nav-link" href="daftar_kursus.html">Kelas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="blog.html">Artikel</a>
+              <a class="nav-link" href="bootcamp.html">Bootcamp</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="aboutUs.html">Tentang</a>
+              <a class="nav-link" href="blog.html">Artikel</a>
+            </li>
+            <li class="nav-item d-lg-none mt-2">
+              <a href="sign_up.html" class="btn btn-custom-primary w-100"
+                >Daftar Gratis</a
+              >
             </li>
           </ul>
           <a
@@ -441,8 +439,9 @@
         <div class="content-column">
           <article class="featured-article">
             <img
-              src="assets/images/blog/productivity-tips.jpg"
+              data-src="assets/images/blog/productivity-tips.jpg"
               alt="Abstract futuristic image representing technology"
+              loading="lazy"
             />
             <div class="featured-actions">
               <button class="btn btn-primary">Baca Selengkapnya</button>
@@ -455,8 +454,10 @@
             <div class="article-grid">
               <article class="article-card">
                 <img
-                  src="assets/images/blog/productivity-tips.jpg"
+                  <img
+                  data-src="assets/images/blog/productivity-tips.jpg"
                   alt="Meja kerja yang rapi untuk meningkatkan produktivitas"
+                  loading="lazy"
                 />
                 <div class="card-content">
                   <h3 class="card-title">
@@ -471,8 +472,9 @@
 
               <article class="article-card">
                 <img
-                  src="assets/images/blog/communication-skills.jpg"
+                  data-src="assets/images/blog/communication-skills.jpg"
                   alt="Rekan kerja sedang berkomunikasi di kantor"
+                  loading="lazy"
                 />
                 <div class="card-content">
                   <h3 class="card-title">
@@ -487,8 +489,10 @@
 
               <article class="article-card">
                 <img
-                  src="assets/images/blog/stress-management.jpg"
+                  <img
+                  data-src="assets/images/blog/stress-management.jpg"
                   alt="Orang bermeditasi untuk keseimbangan hidup dan kerja"
+                  loading="lazy"
                 />
                 <div class="card-content">
                   <h3 class="card-title">
@@ -503,8 +507,10 @@
 
               <article class="article-card">
                 <img
-                  src="assets/images/blog/tech-career.jpg"
+                  <img
+                  data-src="assets/images/blog/tech-career.jpg"
                   alt="Tangan sedang mengetik kode di laptop"
+                  loading="lazy"
                 />
                 <div class="card-content">
                   <h3 class="card-title">
@@ -519,8 +525,10 @@
 
               <article class="article-card">
                 <img
-                  src="assets/images/blog/self-development.jpg"
+                  <img
+                  data-src="assets/images/blog/self-development.jpg"
                   alt="Orang berdiri di atas tumpukan buku, simbol pengembangan diri"
+                  loading="lazy"
                 />
                 <div class="card-content">
                   <h3 class="card-title">
@@ -537,8 +545,10 @@
 
               <article class="article-card">
                 <img
-                  src="assets/images/blog/networking.jpg"
+                  <img
+                  data-src="assets/images/blog/networking.jpg"
                   alt="Orang-orang profesional sedang membangun jaringan"
+                  loading="lazy"
                 />
                 <div class="card-content">
                   <h3 class="card-title">
@@ -591,8 +601,10 @@
             <div class="popular-articles-list">
               <div class="d-flex align-items-start mb-3">
                 <img
-                  src="https://storage.googleapis.com/maker-studio-images/images/e3067677-7443-4f9e-a0e1-4566c7739da4"
+                  <img
+                  data-src="https://storage.googleapis.com/maker-studio-images/images/e3067677-7443-4f9e-a0e1-4566c7739da4"
                   alt="Popular Article"
+                  loading="lazy"
                 />
                 <div class="popular-info">
                   <h4 class="title">Peningkatan Produktivitas</h4>
@@ -601,8 +613,10 @@
               </div>
               <div class="d-flex align-items-start mb-3">
                 <img
-                  src="https://storage.googleapis.com/maker-studio-images/images/9485121c-a1a7-4b77-a87f-d5b78f45a766"
+                  <img
+                  data-src="https://storage.googleapis.com/maker-studio-images/images/9485121c-a1a7-4b77-a87f-d5b78f45a766"
                   alt="Popular Article"
+                  loading="lazy"
                 />
                 <div class="popular-info">
                   <h4 class="title">Menguasai Keterampilan</h4>
@@ -611,8 +625,9 @@
               </div>
               <div class="d-flex align-items-start mb-3">
                 <img
-                  src="https://storage.googleapis.com/maker-studio-images/images/2fce19bd-d50c-4d87-bb78-0402e604724b"
+                  data-src="https://storage.googleapis.com/maker-studio-images/images/2fce19bd-d50c-4d87-bb78-0402e604724b"
                   alt="Popular Article"
+                  loading="lazy"
                 />
                 <div class="popular-info">
                   <h4 class="title">Tips Mengelola Stres dan</h4>
@@ -653,8 +668,12 @@
         <span class="copyright-text">© 2025 NAKAMA. All rights reserved.</span>
       </div>
     </footer>
-    <script src="script/script.js"></script>
     <script src="script/lazy-loading.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

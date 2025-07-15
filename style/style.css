@@ -9,7 +9,7 @@
   --color-primary: #f39c12;
   --color-primary-hover: #af7415;
   --color-accent-teal: #4a7c77;
-  --color-accent-peach: #faebd7; /* Warna untuk kolom visual */
+  --color-accent-peach: #faebd7;
 
   /* --- Neutral & Text Colors --- */
   --color-background: #fdfbf6;
@@ -22,20 +22,26 @@
   --card-bg: #ffffff;
   --sidebar-width: 320px;
   --light-gray: #f8f9fa;
-  --text-dark: #212529;
-  --gray-300: #f5f2f0;
 
-  /* --- Fonts --- */
-  --font-heading: "Poppins", sans-serif;
-  --font-body: "Work Sans", sans-serif;
+  /* --- Typography --- */
+  --font-primary: "Work Sans", sans-serif;
+  --font-secondary: "Poppins", sans-serif;
 }
 
-/* # GAYA UMUM & RESET
-    -------------------------------------------------------------------------- */
+/* # RESET & BASE STYLES
+  -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-primary);
   background-color: var(--color-background);
   color: var(--color-text-body);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 h1,
@@ -44,131 +50,497 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-secondary);
   color: var(--color-text-heading);
   font-weight: 700;
 }
 
 /* # NAVBAR STYLES
-    -------------------------------------------------------------------------- */
+  -------------------------------------------------------------------------- */
 .navbar {
-  padding: 1rem 0;
-  background-color: var(--color-white);
+  background-color: var(--color-white) !important;
   border-bottom: 1px solid var(--color-border);
-  transition: background-color 0.3s ease-in-out;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
 }
+
 .navbar-brand {
   font-weight: 700;
-  color: var(--color-text-heading);
+  font-size: 1.75rem;
+  color: var(--color-text-heading) !important;
 }
-.nav-link {
-  color: var(--color-text-body);
+
+.navbar-nav .nav-link {
+  color: var(--color-text-body) !important;
   font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
 }
-.nav-link:hover,
-.nav-link.active {
-  color: var(--color-primary);
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-primary) !important;
 }
+
+/* # BUTTONS
+  -------------------------------------------------------------------------- */
 .btn-custom-primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-white);
   font-weight: 600;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
 }
+
 .btn-custom-primary:hover {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
-  color: var(--color-white);
-}
-.btn-outline-secondary {
-  border-color: var(--color-border);
-  color: var(--color-text-body);
-  font-weight: 600;
-}
-.btn-outline-secondary:hover {
-  background-color: var(--color-border);
-  color: var(--color-text-heading);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
 }
 
-/* # FOOTER STYLES (Konsisten untuk semua halaman)
-    -------------------------------------------------------------------------- */
-.footer {
-  background-color: var(--color-background);
-  color: var(--color-text-body);
-  border-top: 1px solid var(--color-border);
-  padding: 3rem 0;
+/* # CARDS
+  -------------------------------------------------------------------------- */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* # FOOTER
+  -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--light-gray);
+  border-top: 1px solid var(--color-border);
+}
+
 .footer .nav-link {
   color: var(--color-text-body);
-  font-weight: 400;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
+
 .footer .nav-link:hover {
   color: var(--color-primary);
 }
-.footer .social-icons a {
+
+.social-icons a {
   color: var(--color-text-body);
   font-size: 1.25rem;
-  transition: color 0.2s ease-in-out;
+  transition: all 0.3s ease;
 }
-.footer .social-icons a:hover {
+
+.social-icons a:hover {
   color: var(--color-primary);
-}
-.footer .copyright-text {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  transform: translateY(-3px);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Perbaikan touch area di mobile */
-button,
-.nav-link,
-.btn {
-  min-height: 44px; /* Standar touch target size */
-  min-width: 44px;
-}
-
-/* Font size responsive */
-@media (max-width: 576px) {
-  body {
-    font-size: 14px;
-  }
-  h1 {
-    font-size: 1.8rem;
-  }
-  h2 {
+/* # RESPONSIVE UTILITIES
+  -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .navbar-brand {
     font-size: 1.5rem;
   }
-  h3 {
-    font-size: 1.3rem;
+
+  .btn-custom-primary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
+
+  .footer .nav-link {
+    padding: 0.5rem 1rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
   .container {
     padding-left: 15px;
     padding-right: 15px;
   }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }
 
-/* Perbaikan responsivitas footer */
-@media (max-width: 768px) {
-  .footer .nav-item .nav-link {
-    padding: 0.5rem 1rem;
+/* # LOADING STATES
+  -------------------------------------------------------------------------- */
+img {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[data-src] {
+  opacity: 0;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+/* # FORM ELEMENTS
+  -------------------------------------------------------------------------- */
+.form-control,
+.form-select {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+  outline: none;
+}
+
+/* # UTILITY CLASSES
+  -------------------------------------------------------------------------- */
+.text-primary-custom {
+  color: var(--color-primary) !important;
+}
+
+.bg-primary-custom {
+  background-color: var(--color-primary) !important;
+}
+
+.border-primary-custom {
+  border-color: var(--color-primary) !important;
+}
+
+.shadow-sm-custom {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-custom {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* # ANIMATIONS
+  -------------------------------------------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Perbaikan untuk modal di mobile */
-@media (max-width: 576px) {
-  .modal-dialog {
-    margin: 0.5rem;
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* # SCROLLBAR STYLING
+  -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Accessibility Enhancements */
+
+/* Focus styles */
+:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-custom-primary {
+    border: 2px solid currentColor;
   }
-  .modal-content {
-    border-radius: 0.5rem;
+
+  .card {
+    border-width: 2px;
   }
-  .modal-body {
-    padding: 1.5rem;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Ensure sufficient color contrast */
+.text-muted {
+  color: #6c757d !important; /* Meets WCAG AA standards */
+}
+
+/* Make touch targets at least 44x44 pixels */
+.btn,
+.nav-link,
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* # MOBILE SIDEBAR NAVIGATION
+  -------------------------------------------------------------------------- */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--color-white);
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1050;
+  overflow-y: auto;
+}
+
+.mobile-sidebar.active {
+  left: 0;
+}
+
+.mobile-sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-sidebar-header .navbar-brand {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.mobile-sidebar-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text-body);
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.mobile-sidebar-close:hover {
+  background-color: var(--light-gray);
+  color: var(--color-text-heading);
+}
+
+.mobile-sidebar-body {
+  padding: 1.5rem;
+}
+
+.mobile-sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-sidebar-nav .nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.mobile-sidebar-nav .nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--color-text-body);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.mobile-sidebar-nav .nav-link:hover,
+.mobile-sidebar-nav .nav-link.active {
+  background-color: var(--color-accent-peach);
+  color: var(--color-primary);
+}
+
+.mobile-sidebar-nav .btn-custom-primary {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Sidebar overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1040;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hamburger menu styling */
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  width: 44px;
+  height: 44px;
+  position: relative;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  width: 24px;
+  height: 24px;
+  background-image: none;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon span {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text-body);
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: 6px;
+}
+
+.navbar-toggler-icon span {
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+}
+
+.navbar-toggler-icon::after {
+  bottom: 6px;
+}
+
+/* Animasi hamburger saat aktif */
+.navbar-toggler.active .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 50%;
+  transform-origin: center;
+}
+
+.navbar-toggler.active .navbar-toggler-icon span {
+  opacity: 0;
+}
+
+.navbar-toggler.active .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  bottom: 50%;
+  transform-origin: center;
+}
+
+/* Prevent body scroll when sidebar is open */
+body.sidebar-open {
+  overflow: hidden;
+}
+
+/* Desktop - hide sidebar elements */
+@media (min-width: 992px) {
+  .mobile-sidebar,
+  .sidebar-overlay {
+    display: none !important;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    display: none !important;
+  }
+
+  .navbar-toggler {
+    display: block !important;
   }
 }

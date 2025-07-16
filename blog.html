@@ -128,25 +128,34 @@
         font-size: 14px;
         font-weight: 600;
         cursor: pointer;
-        transition: transform 0.2s;
+        transition: transform 0.5s;
       }
-      .btn:hover {
-        transform: translateY(-2px);
+      
+.btn-primary:hover,
+      .btn-primary {
+        background-color: #e0951c !important;
       }
-
       .btn-primary {
         background-color: var(--color-primary);
         color: var(--text-dark);
       }
-      .btn-primary:hover {
-        background-color: #e0951c;
-        border-color: #e0951c;
+      .btn-primary:hover,
+      .btn-primary:focus {
+        background-color: #fff !important;
+        color: var(--color-primary) !important;
+     
       }
 
       .btn-secondary {
-        background-color: var(--gray-300);
-        backdrop-filter: blur(5px);
-        color: var(--text-dark);
+         background-color: #e0951c;
+        border-color: #e0951c;
+        color: var(--text-dark) !important;
+      }
+      .btn-secondary:hover,
+      .btn-secondary:focus {
+        background-color: #fff !important;
+        color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
       }
 
       /* Articles Section */
@@ -256,7 +265,7 @@
       }
       .category-tag:hover {
         background-color: var(--text-dark);
-        color: white;
+        color: rgb(0, 0, 0);
       }
 
       .popular-article {
@@ -394,6 +403,31 @@
         .sidebar .widget {
           margin-bottom: 20px;
         }
+
+        /* Interaktif untuk kategori/tag */
+.category-tag {
+  display: inline-block;
+  padding: 0.4em 1em;
+  margin: 0.2em 0.3em 0.2em 0;
+  background: var(--color-accent-peach);
+  color: var(--color-accent-teal);
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 1em;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(74, 124, 119, 0.07);
+}
+
+.category-tag:hover,
+.category-tag:focus {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(243, 156, 18, 0.15);
+  text-decoration: none;
+  outline: none;
+}
       }
     </style>
   </head>
@@ -439,7 +473,7 @@
         <div class="content-column">
           <article class="featured-article">
             <img
-              data-src="assets/images/blog/productivity-tips.jpg"
+              src="assets/images/blog/Budi-Santoso.webp"
               alt="Abstract futuristic image representing technology"
               loading="lazy"
             />
@@ -454,8 +488,7 @@
             <div class="article-grid">
               <article class="article-card">
                 <img
-                  <img
-                  data-src="assets/images/blog/productivity-tips.jpg"
+                  src="assets/images/blog/Budi-Santoso.webp"
                   alt="Meja kerja yang rapi untuk meningkatkan produktivitas"
                   loading="lazy"
                 />
@@ -472,7 +505,7 @@
 
               <article class="article-card">
                 <img
-                  data-src="assets/images/blog/communication-skills.jpg"
+                  src="assets/images/blog/ani-wijaya.jpg"
                   alt="Rekan kerja sedang berkomunikasi di kantor"
                   loading="lazy"
                 />
@@ -489,8 +522,8 @@
 
               <article class="article-card">
                 <img
-                  <img
-                  data-src="assets/images/blog/stress-management.jpg"
+                  
+                  data-src="assets/images/blog/populer1.jpg"
                   alt="Orang bermeditasi untuk keseimbangan hidup dan kerja"
                   loading="lazy"
                 />
@@ -507,8 +540,7 @@
 
               <article class="article-card">
                 <img
-                  <img
-                  data-src="assets/images/blog/tech-career.jpg"
+                  src="assets/images/blog/mengetik code.jpg"
                   alt="Tangan sedang mengetik kode di laptop"
                   loading="lazy"
                 />
@@ -525,8 +557,7 @@
 
               <article class="article-card">
                 <img
-                  <img
-                  data-src="assets/images/blog/self-development.jpg"
+                  src="assets/images/blog/pendirian.jpg"
                   alt="Orang berdiri di atas tumpukan buku, simbol pengembangan diri"
                   loading="lazy"
                 />
@@ -545,8 +576,7 @@
 
               <article class="article-card">
                 <img
-                  <img
-                  data-src="assets/images/blog/networking.jpg"
+                  src="assets/images/blog/membangun jaringan.jpeg.jpg"
                   alt="Orang-orang profesional sedang membangun jaringan"
                   loading="lazy"
                 />
@@ -566,13 +596,12 @@
           </section>
 
           <nav class="pagination">
-            <a href="#"><i class="fas fa-chevron-left"></i></a>
-            <a href="#" class="active">1</a>
+            <a href="#">1</a>
             <a href="#">2</a>
             <a href="#">3</a>
             <a href="#">4</a>
             <a href="#">5</a>
-            <a href="#"><i class="fas fa-chevron-right"></i></a>
+         
           </nav>
         </div>
 
@@ -599,10 +628,9 @@
           <div class="widget">
             <h3 class="widget-title">Artikel Populer</h3>
             <div class="popular-articles-list">
-              <div class="d-flex align-items-start mb-3">
+              <div class="popular-article">
                 <img
-                  <img
-                  data-src="https://storage.googleapis.com/maker-studio-images/images/e3067677-7443-4f9e-a0e1-4566c7739da4"
+                  src="assets/images/blog/Budi-Santoso.webp"
                   alt="Popular Article"
                   loading="lazy"
                 />
@@ -611,10 +639,9 @@
                   <p class="meta">Oleh: Budi Santoso • 12 Mei 2024</p>
                 </div>
               </div>
-              <div class="d-flex align-items-start mb-3">
+              <div class="popular-article">
                 <img
-                  <img
-                  data-src="https://storage.googleapis.com/maker-studio-images/images/9485121c-a1a7-4b77-a87f-d5b78f45a766"
+                  src="assets/images/blog/ani-wijaya.jpg"
                   alt="Popular Article"
                   loading="lazy"
                 />
@@ -623,9 +650,9 @@
                   <p class="meta">Oleh: Ani Wijaya • 8 Mei 2024</p>
                 </div>
               </div>
-              <div class="d-flex align-items-start mb-3">
+              <div class="popular-article">
                 <img
-                  data-src="https://storage.googleapis.com/maker-studio-images/images/2fce19bd-d50c-4d87-bb78-0402e604724b"
+                  src="assets/images/blog/populer1.jpg"
                   alt="Popular Article"
                   loading="lazy"
                 />

@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <span class="fw-semibold">${userName}</span>
           </div>
           <ul class="list-unstyled ps-3">
-            <li><a class="nav-link" href="landing_page_login.html"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+          
             <li><a class="nav-link" href="#"><i class="bi bi-person-circle"></i> Profil Saya</a></li>
             <li><a class="nav-link" href="#"><i class="bi bi-gear"></i> Pengaturan</a></li>
             <li><hr class="dropdown-divider mx-3"></li>

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tabletBreakpoint: 992,
     animationDuration: 300,
   };
-
+  
   // ========== Utility Functions ==========
   const utils = {
     isMobile: () => window.innerWidth < config.mobileBreakpoint,
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <span class="fw-semibold">${userName}</span>
           </div>
           <ul class="list-unstyled ps-3">
-          
+
             <li><a class="nav-link" href="#"><i class="bi bi-person-circle"></i> Profil Saya</a></li>
             <li><a class="nav-link" href="#"><i class="bi bi-gear"></i> Pengaturan</a></li>
             <li><hr class="dropdown-divider mx-3"></li>

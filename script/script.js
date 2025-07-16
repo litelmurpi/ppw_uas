@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tabletBreakpoint: 992,
     animationDuration: 300,
   };
-
+  
   // ========== Utility Functions ==========
   const utils = {
     isMobile: () => window.innerWidth < config.mobileBreakpoint,

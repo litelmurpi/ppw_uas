@@ -508,54 +508,72 @@
     </style>
   </head>
   <body>
-    <header class="header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container">
-        <a href="landing_page_login.html" class="logo">NAKAMA</a>
-        
-        <!-- Mobile hamburger -->
-        <button class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="landing_page_login.html">NAKAMA</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"><span></span></span>
         </button>
-        
-        <!-- Desktop navigation -->
-        <div class="nav-links ms-auto d-none d-lg-flex">
-          <nav>
-            <ul class="nav-menu">
-              <li class="nav-item"><a href="index.html">Beranda</a></li>
-              <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Jelajahi
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="bootcamp_login.html">Bootcamp</a></li>
-                  <li><a class="dropdown-item" href="daftar_kursus.html">Kelas</a></li>
-                  <li><a class="dropdown-item" href="blog.html">Artikel</a></li>
-                </ul>
-              </li>
-              <li class="nav-item"><a href="aboutUs.html">Tentang Kami</a></li>
-            </ul>
-          </nav>
-
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="daftar_kursus.html">Kelas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="bootcamp.html">Bootcamp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Artikel</a>
+            </li>
+          </ul>
           <!-- Profile Dropdown -->
-          <div class="d-flex align-items-center">
-            <div class="dropdown profile-dropdown">
-              <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://i.pravatar.cc/150?img=32" alt="Foto Profil" loading="lazy">
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li><h6 class="dropdown-header">Ukyo</h6></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> Profil Saya</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Pengaturan Akun</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item text-danger" href="index.html"><i class="bi bi-box-arrow-right"></i> Keluar</a></li>
-              </ul>
-            </div>
+          <div class="dropdown profile-dropdown ms-lg-3">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://i.pravatar.cc/150?img=32"
+                alt="User Avatar"
+                class="rounded-circle"
+                style="width: 40px; height: 40px; object-fit: cover"
+              />
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><h6 class="dropdown-header">Ukyo</h6></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="landing_page_login.html"
+                  ><i class="bi bi-speedometer2"></i> Dashboard</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-person-circle"></i> Profil Saya</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><i class="bi bi-gear"></i> Pengaturan</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item text-danger" href="index.html"
+                  ><i class="bi bi-box-arrow-right"></i> Keluar</a
+                >
+              </li>
+            </ul>
           </div>
-          <!-- AKHIR PERUBAHAN HTML -->
         </div>
       </div>
-    </header>
+    </nav>
 
     <main class="main-content">
       <div class="container">
